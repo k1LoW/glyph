@@ -8,11 +8,11 @@ import (
 
 func TestPoints(t *testing.T) {
 	got := points()
-	if diff := cmp.Diff(got["a0"], &Point{X: 60.0 - float64(5)*dx, Y: 35.0}, nil); diff != "" {
+	if diff := cmp.Diff(got["a0"], &Point{X: 55.0 - float64(5)*dx, Y: 30.0}, nil); diff != "" {
 		t.Errorf("%s", diff)
 	}
 
-	if diff := cmp.Diff(got["a5"], &Point{X: 60.0 - float64(5)*dx, Y: 85.0}, nil); diff != "" {
+	if diff := cmp.Diff(got["a5"], &Point{X: 55.0 - float64(5)*dx, Y: 80.0}, nil); diff != "" {
 		t.Errorf("%s", diff)
 	}
 
@@ -20,11 +20,11 @@ func TestPoints(t *testing.T) {
 		t.Errorf("%v", got["a6"])
 	}
 
-	if diff := cmp.Diff(got["f0"], &Point{X: 60.0, Y: 10.0}, nil); diff != "" {
+	if diff := cmp.Diff(got["f0"], &Point{X: 55.0, Y: 5.0}, nil); diff != "" {
 		t.Errorf("%s", diff)
 	}
 
-	if diff := cmp.Diff(got["fa"], &Point{X: 60.0, Y: 110.0}, nil); diff != "" {
+	if diff := cmp.Diff(got["fa"], &Point{X: 55.0, Y: 105.0}, nil); diff != "" {
 		t.Errorf("%s", diff)
 	}
 
@@ -32,11 +32,11 @@ func TestPoints(t *testing.T) {
 		t.Errorf("%v", got["fb"])
 	}
 
-	if diff := cmp.Diff(got["k0"], &Point{X: 60.0 + float64(5)*dx, Y: 35.0}, nil); diff != "" {
+	if diff := cmp.Diff(got["k0"], &Point{X: 55.0 + float64(5)*dx, Y: 30.0}, nil); diff != "" {
 		t.Errorf("%s", diff)
 	}
 
-	if diff := cmp.Diff(got["k5"], &Point{X: 60.0 + float64(5)*dx, Y: 85.0}, nil); diff != "" {
+	if diff := cmp.Diff(got["k5"], &Point{X: 55.0 + float64(5)*dx, Y: 80.0}, nil); diff != "" {
 		t.Errorf("%s", diff)
 	}
 

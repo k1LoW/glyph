@@ -32,8 +32,8 @@ func points() Points {
 	points := Points{}
 	px := 0xf
 	py := 0x0
-	x := 60.0
-	y := 10.0
+	f0x := 55.0
+	f0y := 5.0
 	maxy := 10
 
 	// f,e,d,c,b,a
@@ -42,8 +42,8 @@ func points() Points {
 		for j := 0; j <= max; j++ {
 			key := fmt.Sprintf("%s%x", strconv.FormatInt(int64(px-i), 21), py+j)
 			points[key] = &Point{
-				X: x - float64(i)*dx,
-				Y: y + float64(i)*dy + float64(j)*dy*2,
+				X: f0x - float64(i)*dx,
+				Y: f0y + float64(i)*dy + float64(j)*dy*2,
 			}
 		}
 	}
@@ -54,8 +54,8 @@ func points() Points {
 		for j := 0; j <= max; j++ {
 			key := fmt.Sprintf("%s%x", strconv.FormatInt(int64(px+i), 21), py+j)
 			points[key] = &Point{
-				X: x + float64(i)*dx,
-				Y: y + float64(i)*dy + float64(j)*dy*2,
+				X: f0x + float64(i)*dx,
+				Y: f0y + float64(i)*dy + float64(j)*dy*2,
 			}
 		}
 	}

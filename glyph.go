@@ -20,12 +20,12 @@ type Glyph struct {
 
 func New() *Glyph {
 	return &Glyph{
-		w:    120.0,
-		h:    120.0,
+		w:    110.0,
+		h:    110.0,
 		minx: 0.0,
 		miny: 0.0,
-		vw:   120.0,
-		vh:   120.0,
+		vw:   110.0,
+		vh:   110.0,
 	}
 }
 
