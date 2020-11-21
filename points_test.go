@@ -7,7 +7,7 @@ import (
 )
 
 func TestPoints(t *testing.T) {
-	got := points()
+	got := getPoints()
 	if diff := cmp.Diff(got["a0"], &Point{X: 55.0 - float64(5)*dx, Y: 30.0}, nil); diff != "" {
 		t.Errorf("%s", diff)
 	}

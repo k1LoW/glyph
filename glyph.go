@@ -37,15 +37,15 @@ func New() *Glyph {
 	}
 }
 
-func (g *Glyph) AddLine(strp []string, opts ...string) error {
+func (g *Glyph) AddLine(points []string, opts ...string) error {
 	m := orderedmap.NewOrderedMap()
 	for _, opt := range defaultLineOpt {
 		splited := strings.Split(opt, ":")
 		m.Set(strings.Trim(splited[0], " ;"), strings.Trim(splited[1], " ;"))
 	}
 	l := &Line{}
-	ps := points()
-	for _, k := range strp {
+	ps := getPoints()
+	for _, k := range points {
 		p, err := ps.Get(k)
 		if err != nil {
 			return err

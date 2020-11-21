@@ -25,7 +25,7 @@ const dy = 5.0
 
 var cPoints = Points{}
 
-func points() Points {
+func getPoints() Points {
 	if len(cPoints) > 0 {
 		return cPoints
 	}
