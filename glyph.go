@@ -6,6 +6,7 @@ import (
 	"image"
 	"image/png"
 	"io"
+	"strconv"
 	"strings"
 
 	svgo "github.com/ajstarks/svgo/float"
@@ -16,7 +17,6 @@ import (
 
 var defaultLineOpts = []string{
 	"stroke:#4B75B9",
-	"stroke-width:4",
 	"stroke-linecap:round",
 	"stroke-linejoin:round",
 	"fill:#FFFFFF",
@@ -29,9 +29,9 @@ type Line struct {
 }
 
 type Glyph struct {
-	w, h, minx, miny, vw, vh float64
-	lineOpts                 *orderedmap.OrderedMap
-	lines                    []*Line
+	w, h, minx, miny, vw, vh, lw float64
+	lineOpts                     *orderedmap.OrderedMap
+	lines                        []*Line
 }
 
 type Option func(*Glyph) error
@@ -57,6 +57,13 @@ func Color(c string) Option {
 	}
 }
 
+func FillColor(c string) Option {
+	return func(g *Glyph) error {
+		g.lineOpts.Set("fill", c)
+		return nil
+	}
+}
+
 func New(opts ...Option) (*Glyph, error) {
 	g := &Glyph{
 		w:        110.0,
@@ -65,17 +72,27 @@ func New(opts ...Option) (*Glyph, error) {
 		miny:     0.0,
 		vw:       110.0,
 		vh:       110.0,
+		lw:       4.0,
 		lineOpts: orderedmap.NewOrderedMap(),
 	}
 	for _, opt := range defaultLineOpts {
 		splited := strings.Split(opt, ":")
 		g.lineOpts.Set(strings.Trim(splited[0], " ;"), strings.Trim(splited[1], " ;"))
 	}
+
 	for _, opt := range opts {
 		if err := opt(g); err != nil {
 			return nil, err
 		}
 	}
+
+	// Set stroke-width using g.lw, g.w/g.h and g.vw
+	canvasSize := g.w
+	if g.w > g.h {
+		canvasSize = g.h
+	}
+	g.lineOpts.Set("stroke-width", strconv.FormatFloat(g.lw*(canvasSize/g.vw), 'f', -1, 64))
+
 	return g, nil
 }
 
@@ -96,10 +113,10 @@ func (g *Glyph) AddLine(points []string, opts ...string) error {
 	}
 	if l.points[0].X == l.points[len(l.points)-1].X && l.points[0].Y == l.points[len(l.points)-1].Y {
 		// polygon
-		m.Delete("fill-opacity")
+		m.Set("fill-opacity", "1.0")
 	} else {
 		// polyline
-		m.Delete("fill")
+		m.Set("fill-opacity", "0.0")
 	}
 	for _, opt := range opts {
 		splited := strings.Split(opt, ":")
