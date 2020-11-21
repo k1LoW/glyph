@@ -64,6 +64,13 @@ func FillColor(c string) Option {
 	}
 }
 
+func LineWitdh(lw float64) Option {
+	return func(g *Glyph) error {
+		g.lw = lw
+		return nil
+	}
+}
+
 func New(opts ...Option) (*Glyph, error) {
 	g := &Glyph{
 		w:        110.0,
