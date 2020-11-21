@@ -14,7 +14,7 @@ import (
 	"github.com/srwiley/rasterx"
 )
 
-var defaultLineOpt = []string{"stroke:#4B75B9", "stroke-width:4", "stroke-linecap:round", "stroke-linejoin:round"}
+var defaultLineOpts = []string{"stroke:#4B75B9", "stroke-width:4", "stroke-linecap:round", "stroke-linejoin:round"}
 
 type Line struct {
 	points []*Point
@@ -23,25 +23,60 @@ type Line struct {
 
 type Glyph struct {
 	w, h, minx, miny, vw, vh float64
+	lineOpts                 *orderedmap.OrderedMap
 	lines                    []*Line
 }
 
-func New() *Glyph {
-	return &Glyph{
-		w:    110.0,
-		h:    110.0,
-		minx: 0.0,
-		miny: 0.0,
-		vw:   110.0,
-		vh:   110.0,
+type Option func(*Glyph) error
+
+func Witdh(w float64) Option {
+	return func(g *Glyph) error {
+		g.w = w
+		return nil
 	}
+}
+
+func Height(h float64) Option {
+	return func(g *Glyph) error {
+		g.h = h
+		return nil
+	}
+}
+
+func Color(c string) Option {
+	return func(g *Glyph) error {
+		g.lineOpts.Set("stroke", c)
+		return nil
+	}
+}
+
+func New(opts ...Option) (*Glyph, error) {
+	g := &Glyph{
+		w:        110.0,
+		h:        110.0,
+		minx:     0.0,
+		miny:     0.0,
+		vw:       110.0,
+		vh:       110.0,
+		lineOpts: orderedmap.NewOrderedMap(),
+	}
+	for _, opt := range defaultLineOpts {
+		splited := strings.Split(opt, ":")
+		g.lineOpts.Set(strings.Trim(splited[0], " ;"), strings.Trim(splited[1], " ;"))
+	}
+	for _, opt := range opts {
+		if err := opt(g); err != nil {
+			return nil, err
+		}
+	}
+	return g, nil
 }
 
 func (g *Glyph) AddLine(points []string, opts ...string) error {
 	m := orderedmap.NewOrderedMap()
-	for _, opt := range defaultLineOpt {
-		splited := strings.Split(opt, ":")
-		m.Set(strings.Trim(splited[0], " ;"), strings.Trim(splited[1], " ;"))
+	for _, k := range g.lineOpts.Keys() {
+		v, _ := g.lineOpts.Get(k)
+		m.Set(k, v.(string))
 	}
 	l := &Line{}
 	ps := getPoints()

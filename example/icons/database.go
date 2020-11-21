@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	g := glyph.New()
+	g, _ := glyph.New()
 	_ = g.AddLine(strings.Split("b0 d0 h0 j0 h2 d2 b0", " "))
 	_ = g.AddLine(strings.Split("b0 b6 d8 h8 j6 j0", " "))
 	_ = g.AddLine(strings.Split("b0 d2 h2 j0", " "))
