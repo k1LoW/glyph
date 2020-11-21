@@ -14,7 +14,14 @@ import (
 	"github.com/srwiley/rasterx"
 )
 
-var defaultLineOpts = []string{"stroke:#4B75B9", "stroke-width:4", "stroke-linecap:round", "stroke-linejoin:round"}
+var defaultLineOpts = []string{
+	"stroke:#4B75B9",
+	"stroke-width:4",
+	"stroke-linecap:round",
+	"stroke-linejoin:round",
+	"fill:#FFFFFF",
+	"fill-opacity:0.0",
+}
 
 type Line struct {
 	points []*Point
@@ -89,10 +96,10 @@ func (g *Glyph) AddLine(points []string, opts ...string) error {
 	}
 	if l.points[0].X == l.points[len(l.points)-1].X && l.points[0].Y == l.points[len(l.points)-1].Y {
 		// polygon
-		m.Set("fill", "#FFFFFF")
+		m.Delete("fill-opacity")
 	} else {
 		// polyline
-		m.Set("fill-opacity", "0.0")
+		m.Delete("fill")
 	}
 	for _, opt := range opts {
 		splited := strings.Split(opt, ":")
