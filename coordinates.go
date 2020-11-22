@@ -65,7 +65,7 @@ func (g *Glyph) addCoordinateLines() error {
 func (g *Glyph) addCoordinateTexts() error {
 	opts := orderedmap.NewOrderedMap()
 	opts.Set("font-size", "3")
-	opts.Set("font-anchor", "middle")
+	opts.Set("text-anchor", "middle")
 	opts.Set("font-color", "#333333")
 	texts := []*Text{}
 	ps := GetPoints()
