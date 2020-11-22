@@ -122,7 +122,7 @@ func (g *Glyph) AddLine(points []string, opts ...string) error {
 		// polygon
 		m.Set("fill-opacity", "1.0")
 	} else {
-		// polyline
+		// line, polyline
 		m.Set("fill-opacity", "0.0")
 	}
 	for _, opt := range opts {
@@ -161,6 +161,9 @@ func (g *Glyph) writeSVG(w io.Writer) error {
 		if l.points[0].X == l.points[len(l.points)-1].X && l.points[0].Y == l.points[len(l.points)-1].Y {
 			// polygon
 			svg.Polygon(x, y, strings.Join(opts, "; "))
+		} else if len(l.points) == 2 {
+			// line
+			svg.Line(l.points[0].X, l.points[0].Y, l.points[1].X, l.points[1].Y, strings.Join(opts, "; "))
 		} else {
 			// polyline
 			svg.Polyline(x, y, strings.Join(opts, "; "))
