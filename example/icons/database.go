@@ -15,7 +15,5 @@ func main() {
 	_ = g.AddLine(strings.Split("b0 d2 h2 j0", " "))
 	_ = g.AddLine(strings.Split("b2 d4 h4 j2", " "))
 	_ = g.AddLine(strings.Split("b4 d6 h6 j4", " "))
-	if err := g.Write(os.Stdout); err != nil {
-		panic(err)
-	}
+	_ = g.Write(os.Stdout)
 }
