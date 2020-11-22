@@ -145,7 +145,7 @@ func (g *Glyph) WriteImage(w io.Writer) error {
 
 func (g *Glyph) writeSVG(w io.Writer) error {
 	svg := svgo.New(w)
-	svg.Startview(g.w, g.h, g.minx, g.miny, g.vw, g.vh)
+	svg.StartviewUnit(g.w, g.h, "px", g.minx, g.miny, g.vw, g.vh)
 	for _, l := range g.lines {
 		x := []float64{}
 		y := []float64{}
