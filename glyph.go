@@ -28,10 +28,17 @@ type Line struct {
 	opts   *orderedmap.OrderedMap
 }
 
+type Text struct {
+	point *Point
+	text  string
+	opts  *orderedmap.OrderedMap
+}
+
 type Glyph struct {
 	w, h, minx, miny, vw, vh, lw float64
 	lineOpts                     *orderedmap.OrderedMap
 	lines                        []*Line
+	texts                        []*Text
 }
 
 type Option func(*Glyph) error
@@ -106,7 +113,7 @@ func (g *Glyph) AddLine(points []string, opts ...string) error {
 		m.Set(k, v.(string))
 	}
 	l := &Line{}
-	ps := getPoints()
+	ps := GetPoints()
 	for _, k := range points {
 		p, err := ps.Get(k)
 		if err != nil {
@@ -128,6 +135,26 @@ func (g *Glyph) AddLine(points []string, opts ...string) error {
 	l.opts = m
 
 	g.lines = append(g.lines, l)
+	return nil
+}
+
+func (g *Glyph) AddText(point, text string, opts ...string) error {
+	ps := GetPoints()
+	p, err := ps.Get(point)
+	if err != nil {
+		return err
+	}
+	m := orderedmap.NewOrderedMap()
+	for _, opt := range opts {
+		splited := strings.Split(opt, ":")
+		m.Set(strings.Trim(splited[0], " ;"), strings.Trim(splited[1], " ;"))
+	}
+	t := &Text{
+		point: p,
+		text:  text,
+		opts:  m,
+	}
+	g.texts = append(g.texts, t)
 	return nil
 }
 
@@ -165,6 +192,15 @@ func (g *Glyph) writeSVG(w io.Writer) error {
 			svg.Polyline(x, y, strings.Join(opts, "; "))
 		}
 	}
+	for _, t := range g.texts {
+		opts := []string{}
+		for _, k := range t.opts.Keys() {
+			v, _ := t.opts.Get(k)
+			opts = append(opts, fmt.Sprintf("%s:%s", k, v.(string)))
+		}
+		svg.Text(t.point.X, t.point.Y, t.text, strings.Join(opts, "; "))
+	}
+
 	svg.End()
 	return nil
 }
