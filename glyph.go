@@ -93,12 +93,8 @@ func New(opts ...Option) (*Glyph, error) {
 		}
 	}
 
-	// Set stroke-width using g.lw, g.w/g.h and g.vw
-	canvasSize := g.w
-	if g.w > g.h {
-		canvasSize = g.h
-	}
-	g.lineOpts.Set("stroke-width", strconv.FormatFloat(g.lw*(canvasSize/g.vw), 'f', -1, 64))
+	// Set stroke-width using g.lw
+	g.lineOpts.Set("stroke-width", strconv.FormatFloat(g.lw, 'f', -1, 64))
 
 	return g, nil
 }
