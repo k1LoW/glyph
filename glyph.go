@@ -39,6 +39,7 @@ type Glyph struct {
 	lineOpts                     *orderedmap.OrderedMap
 	lines                        []*Line
 	texts                        []*Text
+	showCoordinates              bool
 }
 
 type Option func(*Glyph) error
@@ -80,14 +81,15 @@ func LineWitdh(lw float64) Option {
 
 func New(opts ...Option) (*Glyph, error) {
 	g := &Glyph{
-		w:        110.0,
-		h:        110.0,
-		minx:     0.0,
-		miny:     0.0,
-		vw:       110.0,
-		vh:       110.0,
-		lw:       4.0,
-		lineOpts: orderedmap.NewOrderedMap(),
+		w:               110.0,
+		h:               110.0,
+		minx:            0.0,
+		miny:            0.0,
+		vw:              110.0,
+		vh:              110.0,
+		lw:              4.0,
+		lineOpts:        orderedmap.NewOrderedMap(),
+		showCoordinates: false,
 	}
 	for _, opt := range defaultLineOpts {
 		splited := strings.Split(opt, ":")
@@ -158,6 +160,11 @@ func (g *Glyph) AddText(point, text string, opts ...string) error {
 	return nil
 }
 
+func (g *Glyph) ShowCoordinates() error {
+	g.showCoordinates = true
+	return nil
+}
+
 func (g *Glyph) Write(w io.Writer) error {
 	return g.writeSVG(w)
 }
@@ -169,6 +176,15 @@ func (g *Glyph) WriteImage(w io.Writer) error {
 func (g *Glyph) writeSVG(w io.Writer) error {
 	svg := svgo.New(w)
 	svg.StartviewUnit(g.w, g.h, "px", g.minx, g.miny, g.vw, g.vh)
+	if g.showCoordinates {
+		if err := g.addCoordinateLines(); err != nil {
+			return err
+		}
+		if err := g.addCoordinateTexts(); err != nil {
+			return err
+		}
+	}
+
 	for _, l := range g.lines {
 		x := []float64{}
 		y := []float64{}
