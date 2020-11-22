@@ -24,6 +24,10 @@ sec:
 build:
 	go build -ldflags="$(BUILD_LDFLAGS)"
 
+doc:
+	go run ./misc/coordinates/main.go > img/coordinates.svg
+	go run ./misc/database_with_c/main.go > img/database_with_c.svg
+
 depsdev:
 	go get github.com/Songmu/ghch/cmd/ghch
 	go get github.com/Songmu/gocredits/cmd/gocredits

@@ -10,7 +10,7 @@ import (
 )
 
 func main() {
-	g, _ := glyph.New(glyph.Witdh(450.0), glyph.Height(450.0))
+	g, _ := glyph.New(glyph.Witdh(400.0), glyph.Height(400.0))
 	_ = g.ShowCoordinates()
 	_ = g.AddLine(strings.Split("b0 d0 h0 j0 j6 h8 d8 b6 b0", " "))
 	_ = g.AddLine(strings.Split("b0 d2 h2 j0", " "))
