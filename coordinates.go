@@ -12,6 +12,7 @@ func (g *Glyph) addCoordinateLines() error {
 	opts.Set("stroke-linecap", "round")
 	opts.Set("stroke-linejoin", "round")
 	opts.Set("stroke-width", "0.5")
+	opts.Set("fill-opacity", "0.0")
 	lines := []*Line{}
 	pointSets := []string{
 		"a0 f0 k0 k5 fa a5 a0",

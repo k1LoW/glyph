@@ -20,7 +20,6 @@ var defaultLineOpts = []string{
 	"stroke-linecap:round",
 	"stroke-linejoin:round",
 	"fill:#FFFFFF",
-	"fill-opacity:0.0",
 }
 
 type Line struct {
@@ -125,10 +124,14 @@ func (g *Glyph) AddLine(points []string, opts ...string) error {
 	}
 	if l.points[0].X == l.points[len(l.points)-1].X && l.points[0].Y == l.points[len(l.points)-1].Y {
 		// polygon
-		m.Set("fill-opacity", "1.0")
+		if _, exist := m.Get("fill-opacity"); !exist {
+			m.Set("fill-opacity", "1.0")
+		}
 	} else {
 		// line, polyline
-		m.Set("fill-opacity", "0.0")
+		if _, exist := m.Get("fill-opacity"); !exist {
+			m.Set("fill-opacity", "0.0")
+		}
 	}
 	for _, opt := range opts {
 		splited := strings.Split(opt, ":")
