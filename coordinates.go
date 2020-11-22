@@ -1,6 +1,7 @@
 package glyph
 
 import (
+	"sort"
 	"strings"
 
 	"github.com/elliotchance/orderedmap"
@@ -69,7 +70,13 @@ func (g *Glyph) addCoordinateTexts() error {
 	opts.Set("font-color", "#333333")
 	texts := []*Text{}
 	ps := GetPoints()
-	for k, _ := range ps {
+	keys := []string{}
+	for k := range ps {
+		keys = append(keys, k)
+	}
+	sort.Strings(keys)
+
+	for _, k := range keys {
 		p, err := ps.Get(k)
 		if err != nil {
 			return err
