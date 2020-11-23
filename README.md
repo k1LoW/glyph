@@ -4,7 +4,7 @@ Icon as Code
 
 ## Concept
 
-`glyph` generates icons by connecting predefined coordinates.
+`glyph` generates icons by connecting predefined coordinates with lines.
 
 ![img](img/coordinates.svg)![img](img/database_with_c.svg)
 
