@@ -29,6 +29,10 @@ doc:
 	go run ./misc/database_with_c/main.go > img/database_with_c.svg
 	go run ./misc/included/main.go
 
+ci_doc: doc
+	$(eval DIFF_EXIST := $(shell git checkout go.* && git diff --exit-code --quiet || echo "exist"))
+	test -z "$(DIFF_EXIST)" || (git add -A ./img && git commit -m "Update images by GitHub Action (${GITHUB_SHA})" && git push -v origin ${GITHUB_BRANCH})
+
 depsdev:
 	go get github.com/Songmu/ghch/cmd/ghch
 	go get github.com/Songmu/gocredits/cmd/gocredits

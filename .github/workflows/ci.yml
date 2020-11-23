@@ -21,6 +21,18 @@ jobs:
       - name: Check out source code
         uses: actions/checkout@v2
 
+      - name: Get branch
+        id: get_branch
+        run: echo ::set-output name=GITHUB_BRANCH::${GITHUB_REF/refs\/heads\//}
+
+      - name: Update images
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          make ci_doc
+        env:
+          GITHUB_BRANCH: ${{ steps.get_branch.outputs.GITHUB_BRANCH }}
+
       - name: Test
         run: make ci
 
