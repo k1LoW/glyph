@@ -14,12 +14,15 @@ import (
 	"github.com/srwiley/rasterx"
 )
 
+const defaultColor = "#4B75B9"
+const defaultFillColor = "#FFFFFF"
+
 var defaultLineOpts = []string{
-	"stroke:#4B75B9",
+	fmt.Sprintf("stroke:%s", defaultColor),
 	"stroke-width:4.0",
 	"stroke-linecap:round",
 	"stroke-linejoin:round",
-	"fill:#FFFFFF",
+	fmt.Sprintf("fill:%s", defaultFillColor),
 }
 
 type Line struct {
