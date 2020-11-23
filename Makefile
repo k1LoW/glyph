@@ -27,6 +27,7 @@ build:
 doc:
 	go run ./misc/coordinates/main.go > img/coordinates.svg
 	go run ./misc/database_with_c/main.go > img/database_with_c.svg
+	go run ./misc/preset/main.go
 
 depsdev:
 	go get github.com/Songmu/ghch/cmd/ghch
