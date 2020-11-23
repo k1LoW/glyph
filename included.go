@@ -38,4 +38,11 @@ var Included = Set{
 		"d0 d1 g3 g7 h7 h2 d0",
 		"f1 f2 h2 h6 j6 j1 f1",
 	}),
+	"browser": NewSubGlyph([]LineAndOpts{
+		"d0 d5 i7 i2 d0",
+		"d1 i3",
+		"e1 e2",
+		"f2 f3",
+		"g2 g3",
+	}),
 }
