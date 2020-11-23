@@ -41,10 +41,10 @@ func NewMap(opts ...Option) *Map {
 	}
 }
 
-// NewMapWithPreset *Map with Preset icons
-func NewMapWithPreset(opts ...Option) *Map {
+// NewMapWithIncluded *Map with Included icons
+func NewMapWithIncluded(opts ...Option) *Map {
 	m := NewMap(opts...)
-	for k, sg := range Preset {
+	for k, sg := range Included {
 		g, _ := sg.ToGlyph()
 		m.glyphs[k] = g
 	}

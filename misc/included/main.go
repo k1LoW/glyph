@@ -9,24 +9,24 @@ import (
 	"github.com/k1LoW/glyph"
 )
 
-const ts = `# Preset Icons
+const ts = `# Included Icon Set
 
 | Name | Icon |
 | ---- | ---- |
-{{- range $_, $p := .Preset }}
+{{- range $_, $p := .Included }}
 | {{ index $p 0 }} | ![{{ index $p 0 }}]({{ index $p 1 }}) |
 {{- end }}
 `
 
 func main() {
-	m := glyph.NewMapWithPreset()
-	preset := [][]string{}
+	m := glyph.NewMapWithIncluded()
+	included := [][]string{}
 	for _, k := range m.Keys() {
 		g, err := m.Get(k)
 		if err != nil {
 			panic(err)
 		}
-		p := filepath.Join("img", "preset", fmt.Sprintf("%s.svg", k))
+		p := filepath.Join("img", "included", fmt.Sprintf("%s.svg", k))
 		i, err := os.OpenFile(p, os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0666) // #nosec
 		if err != nil {
 			panic(err)
@@ -36,13 +36,13 @@ func main() {
 			panic(err)
 		}
 		_ = i.Close()
-		preset = append(preset, []string{k, p})
+		included = append(included, []string{k, p})
 	}
-	tmpl := template.Must(template.New("preset").Parse(ts))
+	tmpl := template.Must(template.New("included").Parse(ts))
 	tmplData := map[string]interface{}{
-		"Preset": preset,
+		"Included": included,
 	}
-	md, err := os.OpenFile("preset.md", os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0666) // #nosec
+	md, err := os.OpenFile("included.md", os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0666) // #nosec
 	if err != nil {
 		panic(err)
 	}
