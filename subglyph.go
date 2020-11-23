@@ -3,30 +3,26 @@ package glyph
 import (
 	"fmt"
 	"strings"
-
-	"github.com/elliotchance/orderedmap"
 )
 
 type LineAndOpts string
 
-func (l LineAndOpts) Parse() (*Line, error) {
-	line := &Line{
-		opts: orderedmap.NewOrderedMap(),
-	}
+func (l LineAndOpts) Parse() ([]string, []string, error) {
+	points := []string{}
+	opts := []string{}
 	ps := GetPoints()
 	for _, s := range strings.Split(string(l), " ") {
-		p, err := ps.Get(s)
+		_, err := ps.Get(s)
 		if err == nil {
-			line.points = append(line.points, p)
+			points = append(points, s)
 			continue
 		}
-		splited := strings.Split(s, ":")
-		if len(splited) != 2 {
-			return nil, fmt.Errorf("invalid option: %s", s)
+		if strings.Count(s, ":") != 1 {
+			return nil, nil, fmt.Errorf("invalid option: %s", s)
 		}
-		line.opts.Set(strings.Trim(splited[0], " ;"), strings.Trim(splited[1], " ;"))
+		opts = append(opts, s)
 	}
-	return line, nil
+	return points, opts, nil
 }
 
 type SubGlyph struct {
@@ -39,11 +35,11 @@ func (s SubGlyph) ToGlyph() (*Glyph, error) {
 		return nil, err
 	}
 	for _, l := range s.lines {
-		line, err := l.Parse()
+		points, opts, err := l.Parse()
 		if err != nil {
 			return nil, err
 		}
-		g.lines = append(g.lines, line)
+		g.AddLine(points, opts...)
 	}
 	return g, nil
 }
