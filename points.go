@@ -22,7 +22,7 @@ func (p Points) Get(key string) (*Point, error) {
 }
 
 func (p Points) Keys() []string {
-	keys := make([]string, len(p))
+	keys := []string{}
 	for k := range p {
 		keys = append(keys, k)
 	}
