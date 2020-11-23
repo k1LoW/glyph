@@ -45,4 +45,10 @@ var Included = Set{
 		"f2 f3",
 		"g2 g3",
 	}),
+	"cube": NewSubGlyph([]LineAndOpts{
+		"f1 b1 b5 f9 j5 j1 f1",
+		"b1 f5",
+		"f5 f9",
+		"f5 j1",
+	}),
 }
