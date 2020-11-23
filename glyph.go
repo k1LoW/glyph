@@ -6,7 +6,6 @@ import (
 	"image"
 	"image/png"
 	"io"
-	"strconv"
 	"strings"
 
 	svgo "github.com/ajstarks/svgo/float"
@@ -72,14 +71,6 @@ func Color(c string) Option {
 func FillColor(c string) Option {
 	return func(g *Glyph) error {
 		g.lineOpts.Set("fill", c)
-		return nil
-	}
-}
-
-// FillColor set SVG 'stroke-width'
-func LineWitdh(lw float64) Option {
-	return func(g *Glyph) error {
-		g.lineOpts.Set("stroke-width", strconv.FormatFloat(lw, 'f', -1, 64))
 		return nil
 	}
 }
