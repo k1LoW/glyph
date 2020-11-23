@@ -17,6 +17,7 @@ import (
 
 var defaultLineOpts = []string{
 	"stroke:#4B75B9",
+	"stroke-width:4.0",
 	"stroke-linecap:round",
 	"stroke-linejoin:round",
 	"fill:#FFFFFF",
@@ -34,15 +35,16 @@ type Text struct {
 }
 
 type Glyph struct {
-	w, h, minx, miny, vw, vh, lw float64
-	lineOpts                     *orderedmap.OrderedMap
-	lines                        []*Line
-	texts                        []*Text
-	showCoordinates              bool
+	w, h, minx, miny, vw, vh float64
+	lineOpts                 *orderedmap.OrderedMap
+	lines                    []*Line
+	texts                    []*Text
+	showCoordinates          bool
 }
 
 type Option func(*Glyph) error
 
+// Witdh set SVG width
 func Witdh(w float64) Option {
 	return func(g *Glyph) error {
 		g.w = w
@@ -50,6 +52,7 @@ func Witdh(w float64) Option {
 	}
 }
 
+// Height set SVG height
 func Height(h float64) Option {
 	return func(g *Glyph) error {
 		g.h = h
@@ -57,6 +60,7 @@ func Height(h float64) Option {
 	}
 }
 
+// Color set SVG 'stroke'
 func Color(c string) Option {
 	return func(g *Glyph) error {
 		g.lineOpts.Set("stroke", c)
@@ -64,6 +68,7 @@ func Color(c string) Option {
 	}
 }
 
+// FillColor set SVG 'fill'
 func FillColor(c string) Option {
 	return func(g *Glyph) error {
 		g.lineOpts.Set("fill", c)
@@ -71,13 +76,15 @@ func FillColor(c string) Option {
 	}
 }
 
+// FillColor set SVG 'stroke-width'
 func LineWitdh(lw float64) Option {
 	return func(g *Glyph) error {
-		g.lw = lw
+		g.lineOpts.Set("stroke-width", strconv.FormatFloat(lw, 'f', -1, 64))
 		return nil
 	}
 }
 
+// New return *Glyph
 func New(opts ...Option) (*Glyph, error) {
 	g := &Glyph{
 		w:               110.0,
@@ -86,7 +93,6 @@ func New(opts ...Option) (*Glyph, error) {
 		miny:            0.0,
 		vw:              110.0,
 		vh:              110.0,
-		lw:              4.0,
 		lineOpts:        orderedmap.NewOrderedMap(),
 		showCoordinates: false,
 	}
@@ -100,9 +106,6 @@ func New(opts ...Option) (*Glyph, error) {
 			return nil, err
 		}
 	}
-
-	// Set stroke-width using g.lw
-	g.lineOpts.Set("stroke-width", strconv.FormatFloat(g.lw, 'f', -1, 64))
 
 	return g, nil
 }
