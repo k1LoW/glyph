@@ -39,7 +39,9 @@ func (s SubGlyph) ToGlyph() (*Glyph, error) {
 		if err != nil {
 			return nil, err
 		}
-		g.AddLine(points, opts...)
+		if err := g.AddLine(points, opts...); err != nil {
+			return nil, err
+		}
 	}
 	return g, nil
 }
