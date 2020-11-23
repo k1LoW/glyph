@@ -162,6 +162,11 @@ func (g *Glyph) ShowCoordinates() error {
 	return nil
 }
 
+func (g *Glyph) HideCoordinates() error {
+	g.showCoordinates = false
+	return nil
+}
+
 func (g *Glyph) Write(w io.Writer) error {
 	return g.writeSVG(w)
 }
