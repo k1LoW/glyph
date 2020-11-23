@@ -25,13 +25,13 @@ func (s Set) Keys() []string {
 }
 
 var Included = Set{
-	"database": NewSubGlyph([]LineAndOpts{
+	"db": NewSubGlyph([]LineAndOpts{
 		"b0 d0 h0 j0 j6 h8 d8 b6 b0",
 		"b0 d2 h2 j0",
 		"b2 d4 h4 j2",
 		"b4 d6 h6 j4",
 	}),
-	"document": NewSubGlyph([]LineAndOpts{
+	"doc": NewSubGlyph([]LineAndOpts{
 		"b0 b5 f9 f4 b0",
 		"c0 c1 f4 f8 g8 g3 c0",
 		"d0 d1 g3 g7 h7 h2 d0",
