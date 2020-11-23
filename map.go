@@ -45,7 +45,10 @@ func NewMap(opts ...Option) *Map {
 func NewMapWithIncluded(opts ...Option) *Map {
 	m := NewMap(opts...)
 	for k, sg := range Included {
-		g, _ := sg.ToGlyph()
+		g, err := sg.ToGlyph()
+		if err != nil {
+			panic(err)
+		}
 		m.glyphs[k] = g
 	}
 	return m

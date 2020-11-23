@@ -27,6 +27,7 @@ func main() {
 			panic(err)
 		}
 		p := filepath.Join("img", "included", fmt.Sprintf("%s.svg", k))
+		_, _ = fmt.Fprintf(os.Stderr, "create %s\n", p)
 		i, err := os.OpenFile(p, os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0666) // #nosec
 		if err != nil {
 			panic(err)
@@ -42,6 +43,7 @@ func main() {
 	tmplData := map[string]interface{}{
 		"Included": included,
 	}
+	_, _ = fmt.Fprintf(os.Stderr, "create %s\n", "included.md")
 	md, err := os.OpenFile("included.md", os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0666) // #nosec
 	if err != nil {
 		panic(err)
