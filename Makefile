@@ -41,7 +41,4 @@ prerelease:
 	git commit -m'Bump up version number'
 	git tag ${VER}
 
-release:
-	goreleaser --rm-dist
-
 .PHONY: default test
