@@ -27,3 +27,23 @@ func main() {
 	_ = g.Write(os.Stdout)
 }
 ```
+
+## Included Icon Set
+
+`glyph` has [included icon set](included.md).
+
+``` go
+package main
+
+import (
+	"os"
+	"strings"
+
+	"github.com/k1LoW/glyph"
+)
+
+func main() {
+	g, _ := glyph.Included.Get("database")
+	_ = g.Write(os.Stdout)
+}
+```
