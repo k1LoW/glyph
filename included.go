@@ -52,10 +52,10 @@ var Included = Set{
 		"f5 j1",
 	}),
 	"lb": NewSubGlyph([]LineAndOpts{
-		"b4 a4 a5 b6 c6 c5 b4",
+		"c4 b4 b5 c6 d6 d5 c4",
 		"g0 f1 f2 g2 h1 h0 g0",
 		"j3 i4 i5 j5 k4 k3 j3",
-		"c5 d5 d2 f2",
-		"d5 g7 i5",
+		"d5 e5 e2 f2",
+		"e5 h6 i5",
 	}),
 }
