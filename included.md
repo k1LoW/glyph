@@ -6,3 +6,4 @@
 | cube | ![cube](img/included/cube.svg) |
 | database | ![database](img/included/database.svg) |
 | documents | ![documents](img/included/documents.svg) |
+| lb | ![lb](img/included/lb.svg) |
