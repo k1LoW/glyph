@@ -2,6 +2,7 @@ package glyph
 
 import (
 	"fmt"
+	"sort"
 	"strconv"
 )
 
@@ -18,6 +19,15 @@ func (p Points) Get(key string) (*Point, error) {
 		return nil, fmt.Errorf("invalid key: %s", key)
 	}
 	return v, nil
+}
+
+func (p Points) Keys() []string {
+	keys := make([]string, len(p))
+	for k := range p {
+		keys = append(keys, k)
+	}
+	sort.Strings(keys)
+	return keys
 }
 
 const dx = 8.660254
