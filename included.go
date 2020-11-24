@@ -90,4 +90,22 @@ var Included = Set{
 		"a1 b3 d5 h5 j3 k1",
 		"a3 b5 e8 g8 j5 k3",
 	}),
+	"lb-l4": NewSubGlyph([]LineAndOpts{
+		"b4 a4 a5 b6 c6 c5 b4",
+		"g0 f1 f2 g2 h1 h0 g0",
+		"j3 i4 i5 j5 k4 k3 j3",
+		"c5 d5 d2 f2",
+		"d5 g7 i5",
+	}).Texts([]TextAndOpts{
+		"L4 f5 font-size:18.0",
+	}),
+	"lb-l7": NewSubGlyph([]LineAndOpts{
+		"b4 a4 a5 b6 c6 c5 b4",
+		"g0 f1 f2 g2 h1 h0 g0",
+		"j3 i4 i5 j5 k4 k3 j3",
+		"c5 d5 d2 f2",
+		"d5 g7 i5",
+	}).Texts([]TextAndOpts{
+		"L7 f5 font-size:18.0",
+	}),
 }

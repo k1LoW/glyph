@@ -25,6 +25,14 @@ var defaultLineOpts = []string{
 	fmt.Sprintf("fill:%s", defaultFillColor),
 }
 
+var defaultTextOpts = []string{
+	fmt.Sprintf("fill:%s", defaultColor),
+	"font-anchor:middle",
+	"font-weight:bold",
+	"font-family:Arial,sans-serif",
+	"font-size:15.0",
+}
+
 type Line struct {
 	points []*Point
 	opts   *orderedmap.OrderedMap
@@ -41,6 +49,7 @@ type Glyph struct {
 	lineOpts                 *orderedmap.OrderedMap
 	lines                    []*Line
 	texts                    []*Text
+	textOpts                 *orderedmap.OrderedMap
 	showCoordinates          bool
 }
 
@@ -88,11 +97,16 @@ func New(opts ...Option) (*Glyph, error) {
 		vw:              110.0,
 		vh:              110.0,
 		lineOpts:        orderedmap.NewOrderedMap(),
+		textOpts:        orderedmap.NewOrderedMap(),
 		showCoordinates: false,
 	}
 	for _, opt := range defaultLineOpts {
 		splited := strings.Split(opt, ":")
 		g.lineOpts.Set(strings.Trim(splited[0], " ;"), strings.Trim(splited[1], " ;"))
+	}
+	for _, opt := range defaultTextOpts {
+		splited := strings.Split(opt, ":")
+		g.textOpts.Set(strings.Trim(splited[0], " ;"), strings.Trim(splited[1], " ;"))
 	}
 
 	for _, opt := range opts {
@@ -140,13 +154,17 @@ func (g *Glyph) AddLine(points []string, opts ...string) error {
 	return nil
 }
 
-func (g *Glyph) AddText(point, text string, opts ...string) error {
+func (g *Glyph) AddText(text, point string, opts ...string) error {
 	ps := GetPoints()
 	p, err := ps.Get(point)
 	if err != nil {
 		return err
 	}
 	m := orderedmap.NewOrderedMap()
+	for _, k := range g.textOpts.Keys() {
+		v, _ := g.textOpts.Get(k)
+		m.Set(k, v.(string))
+	}
 	for _, opt := range opts {
 		splited := strings.Split(opt, ":")
 		m.Set(strings.Trim(splited[0], " ;"), strings.Trim(splited[1], " ;"))
