@@ -59,8 +59,8 @@ var Included = Set{
 		"d5 g7 i5",
 	}),
 	"terminal": NewSubGlyph([]LineAndOpts{
-		fmt.Sprintf("d0 d5 i7 i2 d0 fill:%s", defaultColor),
-		fmt.Sprintf("e2 f4 e4 stroke:%s", defaultFillColor),
-		fmt.Sprintf("f5 g5 stroke:%s", defaultFillColor),
+		LineAndOpts(fmt.Sprintf("d0 d5 i7 i2 d0 fill:%s", defaultColor)),
+		LineAndOpts(fmt.Sprintf("e2 f4 e4 stroke:%s", defaultFillColor)),
+		LineAndOpts(fmt.Sprintf("f5 g5 stroke:%s", defaultFillColor)),
 	}),
 }
