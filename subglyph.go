@@ -79,14 +79,17 @@ func (s SubGlyph) ToGlyph() (*Glyph, error) {
 	return g, nil
 }
 
-// NewSubGlyph create new SubGlyph
-func NewSubGlyph(lines []LineAndOpts) SubGlyph {
-	return SubGlyph{
-		lines: lines,
-	}
+// NewSub create new SubGlyph
+func NewSub() *SubGlyph {
+	return &SubGlyph{}
 }
 
-func (s SubGlyph) Texts(texts []TextAndOpts) SubGlyph {
+func (s *SubGlyph) Lines(lines []LineAndOpts) *SubGlyph {
+	s.lines = lines
+	return s
+}
+
+func (s *SubGlyph) Texts(texts []TextAndOpts) *SubGlyph {
 	s.texts = texts
 	return s
 }
