@@ -7,6 +7,7 @@
 | cube | ![cube](img/included/cube.svg) |
 | db | ![db](img/included/db.svg) |
 | doc | ![doc](img/included/doc.svg) |
+| globe | ![globe](img/included/globe.svg) |
 | lb | ![lb](img/included/lb.svg) |
 | metrics | ![metrics](img/included/metrics.svg) |
 | proxy | ![proxy](img/included/proxy.svg) |

@@ -80,4 +80,14 @@ var Included = Set{
 		"c1 d4 e3 f6 g4 h1 i5 i7 c4 c1",
 		"c2 d4 e4 f3 g6 h4 i6",
 	}),
+	"globe": NewSubGlyph([]LineAndOpts{
+		"a1 a4 c7 e9 g9 i7 k4 k1 i0 g0 e0 c0 a1",
+		"e0 b2 b4 d8",
+		"e0 d2 d6 e9",
+		"g0 h2 h6 g9",
+		"g0 j2 j4 h8",
+		"c0 c1 e3 g3 i1 i0",
+		"a1 b3 d5 h5 j3 k1",
+		"a3 b5 e8 g8 j5 k3",
+	}),
 }
