@@ -63,7 +63,7 @@ func (s SubGlyph) ToGlyph() (*Glyph, error) {
 		if err != nil {
 			return nil, err
 		}
-		if err := g.AddLine(points, opts...); err != nil {
+		if err := g.Line(points, opts...); err != nil {
 			return nil, err
 		}
 	}
@@ -72,21 +72,24 @@ func (s SubGlyph) ToGlyph() (*Glyph, error) {
 		if err != nil {
 			return nil, err
 		}
-		if err := g.AddText(text, point, opts...); err != nil {
+		if err := g.Text(text, point, opts...); err != nil {
 			return nil, err
 		}
 	}
 	return g, nil
 }
 
-// NewSubGlyph create new SubGlyph
-func NewSubGlyph(lines []LineAndOpts) SubGlyph {
-	return SubGlyph{
-		lines: lines,
-	}
+// NewSub create new SubGlyph
+func NewSub() *SubGlyph {
+	return &SubGlyph{}
 }
 
-func (s SubGlyph) Texts(texts []TextAndOpts) SubGlyph {
+func (s *SubGlyph) Lines(lines []LineAndOpts) *SubGlyph {
+	s.lines = lines
+	return s
+}
+
+func (s *SubGlyph) Texts(texts []TextAndOpts) *SubGlyph {
 	s.texts = texts
 	return s
 }

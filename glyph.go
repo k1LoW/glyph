@@ -118,7 +118,7 @@ func New(opts ...Option) (*Glyph, error) {
 	return g, nil
 }
 
-func (g *Glyph) AddLine(points []string, opts ...string) error {
+func (g *Glyph) Line(points []string, opts ...string) error {
 	m := orderedmap.NewOrderedMap()
 	for _, k := range g.lineOpts.Keys() {
 		v, _ := g.lineOpts.Get(k)
@@ -154,7 +154,7 @@ func (g *Glyph) AddLine(points []string, opts ...string) error {
 	return nil
 }
 
-func (g *Glyph) AddText(text, point string, opts ...string) error {
+func (g *Glyph) Text(text, point string, opts ...string) error {
 	ps := GetPoints()
 	p, err := ps.Get(point)
 	if err != nil {
