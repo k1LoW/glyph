@@ -3,6 +3,7 @@
 | Name | Icon |
 | ---- | ---- |
 | browser | ![browser](img/included/browser.svg) |
+| cloud | ![cloud](img/included/cloud.svg) |
 | cube | ![cube](img/included/cube.svg) |
 | db | ![db](img/included/db.svg) |
 | doc | ![doc](img/included/doc.svg) |
