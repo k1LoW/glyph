@@ -63,4 +63,13 @@ var Included = Set{
 		LineAndOpts(fmt.Sprintf("e2 f4 e4 stroke:%s", defaultFillColor)),
 		LineAndOpts(fmt.Sprintf("f5 g5 stroke:%s", defaultFillColor)),
 	}),
+	"proxy": NewSubGlyph([]LineAndOpts{
+		"d3 d5 f7 h5 h3 f3 d3",
+		"d3 f5 f6",
+		"b4 d4",
+		"b5 d5",
+		"b6 e6",
+		"f3 f2 h0",
+		"h5 i5 k3",
+	}),
 }
