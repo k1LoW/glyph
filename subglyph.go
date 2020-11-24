@@ -25,8 +25,32 @@ func (l LineAndOpts) Parse() ([]string, []string, error) {
 	return points, opts, nil
 }
 
+type TextAndOpts string
+
+func (t TextAndOpts) Parse() (string, string, []string, error) {
+	splited := strings.Split(string(t), " ")
+	if len(splited) < 2 {
+		return "", "", []string{}, fmt.Errorf("invalid text and opts: %s", t)
+	}
+	text := splited[0]
+	point := splited[1]
+	opts := splited[2:]
+	ps := GetPoints()
+	_, err := ps.Get(point)
+	if err != nil {
+		return "", "", []string{}, err
+	}
+	for _, s := range opts {
+		if strings.Count(s, ":") != 1 {
+			return "", "", []string{}, fmt.Errorf("invalid option: %s", s)
+		}
+	}
+	return text, point, opts, nil
+}
+
 type SubGlyph struct {
 	lines []LineAndOpts
+	texts []TextAndOpts
 }
 
 func (s SubGlyph) ToGlyph() (*Glyph, error) {
@@ -43,6 +67,15 @@ func (s SubGlyph) ToGlyph() (*Glyph, error) {
 			return nil, err
 		}
 	}
+	for _, t := range s.texts {
+		text, point, opts, err := t.Parse()
+		if err != nil {
+			return nil, err
+		}
+		if err := g.AddText(text, point, opts...); err != nil {
+			return nil, err
+		}
+	}
 	return g, nil
 }
 
@@ -51,4 +84,9 @@ func NewSubGlyph(lines []LineAndOpts) SubGlyph {
 	return SubGlyph{
 		lines: lines,
 	}
+}
+
+func (s SubGlyph) Texts(texts []TextAndOpts) SubGlyph {
+	s.texts = texts
+	return s
 }
