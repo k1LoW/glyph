@@ -63,7 +63,7 @@ func (s SubGlyph) ToGlyph() (*Glyph, error) {
 		if err != nil {
 			return nil, err
 		}
-		if err := g.AddLine(points, opts...); err != nil {
+		if err := g.Line(points, opts...); err != nil {
 			return nil, err
 		}
 	}
@@ -72,7 +72,7 @@ func (s SubGlyph) ToGlyph() (*Glyph, error) {
 		if err != nil {
 			return nil, err
 		}
-		if err := g.AddText(text, point, opts...); err != nil {
+		if err := g.Text(text, point, opts...); err != nil {
 			return nil, err
 		}
 	}
