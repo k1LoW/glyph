@@ -75,4 +75,9 @@ var Included = Set{
 	"cloud": NewSubGlyph([]LineAndOpts{
 		"a3 a4 b5 j5 k4 k2 j2 i1 h1 f2 d3 c2 b2 b3 a3",
 	}),
+	"metrics": NewSubGlyph([]LineAndOpts{
+		"c0 c4 i7 i3",
+		"c1 d4 e3 f6 g4 h1 i5 i7 c4 c1",
+		"c2 d4 e4 f3 g6 h4 i6",
+	}),
 }
