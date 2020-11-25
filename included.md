@@ -2,6 +2,7 @@
 
 | Name | Icon |
 | ---- | ---- |
+| blocks | ![blocks](img/included/blocks.svg) |
 | browser | ![browser](img/included/browser.svg) |
 | cloud | ![cloud](img/included/cloud.svg) |
 | cube | ![cube](img/included/cube.svg) |
