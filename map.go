@@ -44,7 +44,7 @@ func NewMap(opts ...Option) *Map {
 // NewMapWithIncluded *Map with Included icons
 func NewMapWithIncluded(opts ...Option) *Map {
 	m := NewMap(opts...)
-	for k, sg := range Included {
+	for k, sg := range Included() {
 		g, err := sg.ToGlyph()
 		if err != nil {
 			panic(err)
