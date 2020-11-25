@@ -173,6 +173,14 @@ var included = []struct {
 		},
 		[]string{},
 	},
+	{
+		"shield",
+		[]string{
+			"c1 c5 d7 f9 h7 i5 i1 g2 f2 e2 c1",
+		},
+		[]string{},
+		[]string{},
+	},
 }
 
 var cSet Set

@@ -15,4 +15,5 @@
 | lb-l7 | ![lb-l7](img/included/lb-l7.svg) |
 | metrics | ![metrics](img/included/metrics.svg) |
 | proxy | ![proxy](img/included/proxy.svg) |
+| shield | ![shield](img/included/shield.svg) |
 | terminal | ![terminal](img/included/terminal.svg) |
