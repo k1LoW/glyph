@@ -43,7 +43,7 @@ import (
 )
 
 func main() {
-	g, _ := glyph.Included.Get("browser")
+	g, _ := glyph.Included().Get("browser")
 	_ = g.Write(os.Stdout)
 }
 ```
