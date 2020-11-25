@@ -39,7 +39,7 @@ var included = []struct {
 			"b4 d6 h6 j4",
 		},
 		[]string{},
-		[]string{},
+		[]string{"database"},
 	},
 	{
 		"doc",
@@ -51,7 +51,7 @@ var included = []struct {
 			"f1 f2 h2 h6 j6 j1 f1",
 		},
 		[]string{},
-		[]string{},
+		[]string{"document"},
 	},
 	{
 		"browser",
@@ -192,7 +192,11 @@ func Included() Set {
 		for _, t := range g.texts {
 			to = append(to, TextAndOpts(t))
 		}
-		s[g.key] = NewSub().Lines(lo).Texts(to)
+		sg := NewSub().Lines(lo).Texts(to)
+		s[g.key] = sg
+		for _, a := range g.aliases {
+			s[a] = sg
+		}
 	}
 	cSet = s
 	return s
