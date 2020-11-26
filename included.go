@@ -5,25 +5,6 @@ import (
 	"sort"
 )
 
-type Set map[string]*SubGlyph
-
-func (s Set) Get(k string) (*Glyph, error) {
-	sg, ok := s[k]
-	if !ok {
-		return nil, fmt.Errorf("invalid key: %s", k)
-	}
-	return sg.ToGlyph()
-}
-
-func (s Set) Keys() []string {
-	keys := []string{}
-	for k := range s {
-		keys = append(keys, k)
-	}
-	sort.Strings(keys)
-	return keys
-}
-
 var included = []struct {
 	key     string
 	lines   []string
@@ -199,6 +180,20 @@ var included = []struct {
 	{
 		"cubes",
 		[]string{
+			"b3 b5 d7 f7 h7 j5 j3 h3 h1 f1 d1 d3 b3",
+			"d1 f3 h1",
+			"d3 f5 h3",
+			"b3 d5 f5 h5 j3",
+			"f3 f7",
+			"d5 d7",
+			"h5 h7",
+		},
+		[]string{},
+		[]string{},
+	},
+	{
+		"cubes2",
+		[]string{
 			"b1 b3 d5 d7 f9 h7 h5 j3 j1 h1 f3 d1 b1",
 			"b1 d3 f3 h3 j1",
 			"d3 d5 f5 h5 h3",
@@ -212,6 +207,25 @@ var included = []struct {
 }
 
 var cSet Set
+
+type Set map[string]*SubGlyph
+
+func (s Set) Get(k string) (*Glyph, error) {
+	sg, ok := s[k]
+	if !ok {
+		return nil, fmt.Errorf("invalid key: %s", k)
+	}
+	return sg.ToGlyph()
+}
+
+func (s Set) Keys() []string {
+	keys := []string{}
+	for k := range s {
+		keys = append(keys, k)
+	}
+	sort.Strings(keys)
+	return keys
+}
 
 // Included return included icon set
 func Included() Set {

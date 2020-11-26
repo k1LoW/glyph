@@ -7,6 +7,7 @@
 | cloud | ![cloud](img/included/cloud.svg) |
 | cube | ![cube](img/included/cube.svg) |
 | cubes | ![cubes](img/included/cubes.svg) |
+| cubes2 | ![cubes2](img/included/cubes2.svg) |
 | db ( database ) | ![db](img/included/db.svg) |
 | doc ( document ) | ![doc](img/included/doc.svg) |
 | globe | ![globe](img/included/globe.svg) |
