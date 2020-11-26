@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
+	"strings"
 	"text/template"
 
 	"github.com/k1LoW/glyph"
@@ -14,14 +15,19 @@ const ts = `# Included Icon Set
 | Name | Icon |
 | ---- | ---- |
 {{- range $_, $p := .Included }}
-| {{ index $p 0 }} | ![{{ index $p 0 }}]({{ index $p 1 }}) |
+| {{ index $p 0 }}{{ if ne (index $p 2) "" }} ( {{ index $p 2 }} ){{ end }} | ![{{ index $p 0 }}]({{ index $p 1 }}) |
 {{- end }}
 `
 
 func main() {
 	m := glyph.NewMapWithIncluded()
 	included := [][]string{}
+	aliases := glyph.IncludedAliases()
 	for _, k := range m.Keys() {
+		a, ok := aliases[k]
+		if !ok {
+			continue
+		}
 		g, err := m.Get(k)
 		if err != nil {
 			panic(err)
@@ -37,7 +43,7 @@ func main() {
 			panic(err)
 		}
 		_ = i.Close()
-		included = append(included, []string{k, p})
+		included = append(included, []string{k, p, strings.Join(a, ", ")})
 	}
 	tmpl := template.Must(template.New("included").Parse(ts))
 	tmplData := map[string]interface{}{

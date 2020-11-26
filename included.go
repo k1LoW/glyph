@@ -196,6 +196,19 @@ var included = []struct {
 		[]string{},
 		[]string{},
 	},
+	{
+		"cubes",
+		[]string{
+			"b1 b3 d5 d7 f9 h7 h5 j3 j1 h1 f3 d1 b1",
+			"b1 d3 f3 h3 j1",
+			"d3 d5 f5 h5 h3",
+			"f3 f5",
+			"d5 f7 h5",
+			"f7 f9",
+		},
+		[]string{},
+		[]string{},
+	},
 }
 
 var cSet Set
@@ -223,4 +236,13 @@ func Included() Set {
 	}
 	cSet = s
 	return s
+}
+
+// IncludedAliases return included icon aliases
+func IncludedAliases() map[string][]string {
+	aliases := map[string][]string{}
+	for _, g := range included {
+		aliases[g.key] = g.aliases
+	}
+	return aliases
 }

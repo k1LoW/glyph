@@ -6,10 +6,9 @@
 | browser | ![browser](img/included/browser.svg) |
 | cloud | ![cloud](img/included/cloud.svg) |
 | cube | ![cube](img/included/cube.svg) |
-| database | ![database](img/included/database.svg) |
-| db | ![db](img/included/db.svg) |
-| doc | ![doc](img/included/doc.svg) |
-| document | ![document](img/included/document.svg) |
+| cubes | ![cubes](img/included/cubes.svg) |
+| db ( database ) | ![db](img/included/db.svg) |
+| doc ( document ) | ![doc](img/included/doc.svg) |
 | globe | ![globe](img/included/globe.svg) |
 | lb | ![lb](img/included/lb.svg) |
 | lb-l4 | ![lb-l4](img/included/lb-l4.svg) |
