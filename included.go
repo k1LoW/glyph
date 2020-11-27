@@ -110,7 +110,8 @@ var included = []struct {
 		[]string{
 			"c0 c4 i7 i3",
 			"c1 d4 e3 f6 g4 h1 i5 i7 c4 c1",
-			"c2 d4 e4 f3 g6 h4 i6",
+			"c2 d4 e4 f3 g6 h4 i6 i7 c4 c2",
+			"c1 d4 e3 f6 g4 h1 i5",
 		},
 		[]string{},
 		[]string{},
