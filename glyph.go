@@ -71,7 +71,7 @@ func Height(h float64) Option {
 	}
 }
 
-// Color set SVG 'stroke'
+// Color set SVG line 'stroke'
 func Color(c string) Option {
 	return func(g *Glyph) error {
 		g.lineOpts.Set("stroke", c)
@@ -79,10 +79,58 @@ func Color(c string) Option {
 	}
 }
 
-// FillColor set SVG 'fill'
+// FillColor set SVG line 'fill'
 func FillColor(c string) Option {
 	return func(g *Glyph) error {
 		g.lineOpts.Set("fill", c)
+		return nil
+	}
+}
+
+// TextColor set SVG text 'fill'
+func TextColor(c string) Option {
+	return func(g *Glyph) error {
+		g.textOpts.Set("fill", c)
+		return nil
+	}
+}
+
+// LineOpt set SVG line option
+func LineOpt(opt string) Option {
+	return func(g *Glyph) error {
+		splited := strings.Split(opt, ":")
+		g.lineOpts.Set(strings.Trim(splited[0], " ;"), strings.Trim(splited[1], " ;"))
+		return nil
+	}
+}
+
+// TextOpt set SVG text option
+func TextOpt(opt string) Option {
+	return func(g *Glyph) error {
+		splited := strings.Split(opt, ":")
+		g.textOpts.Set(strings.Trim(splited[0], " ;"), strings.Trim(splited[1], " ;"))
+		return nil
+	}
+}
+
+// LineOpts set SVG line options
+func LineOpts(opts []string) Option {
+	return func(g *Glyph) error {
+		for _, opt := range opts {
+			splited := strings.Split(opt, ":")
+			g.lineOpts.Set(strings.Trim(splited[0], " ;"), strings.Trim(splited[1], " ;"))
+		}
+		return nil
+	}
+}
+
+// TextOpts set SVG text options
+func TextOpts(opts []string) Option {
+	return func(g *Glyph) error {
+		for _, opt := range opts {
+			splited := strings.Split(opt, ":")
+			g.textOpts.Set(strings.Trim(splited[0], " ;"), strings.Trim(splited[1], " ;"))
+		}
 		return nil
 	}
 }
@@ -118,6 +166,7 @@ func New(opts ...Option) (*Glyph, error) {
 	return g, nil
 }
 
+// Line draw line
 func (g *Glyph) Line(points []string, opts ...string) error {
 	m := orderedmap.NewOrderedMap()
 	for _, k := range g.lineOpts.Keys() {
@@ -154,6 +203,7 @@ func (g *Glyph) Line(points []string, opts ...string) error {
 	return nil
 }
 
+// Line draw text
 func (g *Glyph) Text(text, point string, opts ...string) error {
 	ps := GetPoints()
 	p, err := ps.Get(point)
