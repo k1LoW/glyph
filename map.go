@@ -33,6 +33,14 @@ func (m *Map) Get(k string) (*Glyph, error) {
 	return g, nil
 }
 
+func (m *Map) Set(k string, g *Glyph) {
+	m.glyphs[k] = g
+}
+
+func (m *Map) Delete(k string) {
+	delete(m.glyphs, k)
+}
+
 // NewMap return *Map
 func NewMap(opts ...Option) *Map {
 	return &Map{
