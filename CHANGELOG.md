@@ -1,3 +1,8 @@
+## [v0.3.0](https://github.com/k1LoW/glyph/compare/v0.2.0...v0.3.0) (2020-11-28)
+
+* Add function for setting line and text options [#4](https://github.com/k1LoW/glyph/pull/4) ([k1LoW](https://github.com/k1LoW))
+* Fix included icon list [#3](https://github.com/k1LoW/glyph/pull/3) ([k1LoW](https://github.com/k1LoW))
+
 ## [v0.2.0](https://github.com/k1LoW/glyph/compare/v0.1.0...v0.2.0) (2020-11-25)
 
 * Refactor code [#2](https://github.com/k1LoW/glyph/pull/2) ([k1LoW](https://github.com/k1LoW))
