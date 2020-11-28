@@ -213,6 +213,74 @@ var included = []struct {
 		[]string{},
 		[]string{},
 	},
+	{
+		"gear",
+		[]string{
+			"c1 b2 c3 c4 b4 c6 d6 e7 e8 g8 g7 h6 i6 j4 i4 i3 j2 i1 h2 g2 g1 e1 e2 d2 c1",
+			"e4 e5 f6 g5 g4 f4 e4",
+		},
+		[]string{},
+		[]string{},
+	},
+	{
+		"hex",
+		[]string{
+			"f1 b1 b5 f9 j5 j1 f1",
+		},
+		[]string{},
+		[]string{"hexagon"},
+	},
+	{
+		"hex2",
+		[]string{
+			"f1 b1 b5 f9 j5 j1 f1",
+			fmt.Sprintf("d3 d5 f7 h5 h3 f3 d3 fill:%s", defaultColor),
+		},
+		[]string{},
+		[]string{"hexagon2"},
+	},
+	{
+		"cube2",
+		[]string{
+			"c2 c5 f8 i5 i2 f2 c2",
+			"d3 f5 f7",
+			"g4 i2",
+		},
+		[]string{},
+		[]string{},
+	},
+	{
+		"cube3",
+		[]string{
+			"d3 d5 f7 h5 h3 f3 d3",
+			"d3 f5 h3",
+			"f5 f7",
+		},
+		[]string{},
+		[]string{},
+	},
+	{
+		"cube4",
+		[]string{
+			"f1 b1 b5 f9 j5 j1 f1",
+			"c2 c5 f8 i5 i2 f2 c2",
+			"d3 f5 f7",
+			"g4 i2",
+		},
+		[]string{},
+		[]string{},
+	},
+	{
+		"cube5",
+		[]string{
+			"f1 b1 b5 f9 j5 j1 f1",
+			"d3 d5 f7 h5 h3 f3 d3",
+			"d3 f5 h3",
+			"f5 f7",
+		},
+		[]string{},
+		[]string{},
+	},
 }
 
 var cSet Set
