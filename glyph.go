@@ -169,10 +169,6 @@ func New(opts ...Option) (*Glyph, error) {
 // Line draw line
 func (g *Glyph) Line(points []string, opts ...string) error {
 	m := orderedmap.NewOrderedMap()
-	for _, k := range g.lineOpts.Keys() {
-		v, _ := g.lineOpts.Get(k)
-		m.Set(k, v.(string))
-	}
 	l := &Line{}
 	ps := GetPoints()
 	for _, k := range points {
@@ -211,10 +207,6 @@ func (g *Glyph) Text(text, point string, opts ...string) error {
 		return err
 	}
 	m := orderedmap.NewOrderedMap()
-	for _, k := range g.textOpts.Keys() {
-		v, _ := g.textOpts.Get(k)
-		m.Set(k, v.(string))
-	}
 	for _, opt := range opts {
 		splited := strings.Split(opt, ":")
 		m.Set(strings.Trim(splited[0], " ;"), strings.Trim(splited[1], " ;"))
@@ -257,7 +249,6 @@ func (g *Glyph) writeSVG(w io.Writer) error {
 			return err
 		}
 	}
-
 	for _, l := range g.lines {
 		x := []float64{}
 		y := []float64{}
@@ -265,9 +256,18 @@ func (g *Glyph) writeSVG(w io.Writer) error {
 			x = append(x, p.X)
 			y = append(y, p.Y)
 		}
-		opts := []string{}
+		m := orderedmap.NewOrderedMap()
+		for _, k := range g.lineOpts.Keys() {
+			v, _ := g.lineOpts.Get(k)
+			m.Set(k, v.(string))
+		}
 		for _, k := range l.opts.Keys() {
 			v, _ := l.opts.Get(k)
+			m.Set(k, v.(string))
+		}
+		opts := []string{}
+		for _, k := range m.Keys() {
+			v, _ := m.Get(k)
 			opts = append(opts, fmt.Sprintf("%s:%s", k, v.(string)))
 		}
 		if l.points[0].X == l.points[len(l.points)-1].X && l.points[0].Y == l.points[len(l.points)-1].Y {
@@ -282,9 +282,18 @@ func (g *Glyph) writeSVG(w io.Writer) error {
 		}
 	}
 	for _, t := range g.texts {
-		opts := []string{}
+		m := orderedmap.NewOrderedMap()
+		for _, k := range g.textOpts.Keys() {
+			v, _ := g.textOpts.Get(k)
+			m.Set(k, v.(string))
+		}
 		for _, k := range t.opts.Keys() {
 			v, _ := t.opts.Get(k)
+			m.Set(k, v.(string))
+		}
+		opts := []string{}
+		for _, k := range m.Keys() {
+			v, _ := m.Get(k)
 			opts = append(opts, fmt.Sprintf("%s:%s", k, v.(string)))
 		}
 		svg.Text(t.point.X, t.point.Y, t.text, strings.Join(opts, "; "))
