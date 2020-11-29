@@ -266,11 +266,13 @@ func (g *Glyph) writeSVG(w io.Writer) error {
 			_ = m.Delete("fill")
 		}
 
+		// generate SVG options
 		opts := []string{}
 		for _, k := range m.Keys() {
 			v, _ := m.Get(k)
 			opts = append(opts, fmt.Sprintf("%s:%s", k, v.(string)))
 		}
+
 		if l.points[0].X == l.points[len(l.points)-1].X && l.points[0].Y == l.points[len(l.points)-1].Y {
 			// polygon
 			svg.Polygon(x, y, strings.Join(opts, "; "))
