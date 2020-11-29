@@ -5,11 +5,11 @@
      xmlns="http://www.w3.org/2000/svg"
      xmlns:xlink="http://www.w3.org/1999/xlink">
 <polygon points="11.70,40.00 11.70,70.00 29.02,90.00 46.34,100.00 63.66,100.00 80.98,90.00 98.30,70.00 98.30,40.00 80.98,20.00 63.66,10.00 46.34,10.00 29.02,20.00 11.70,40.00" style="stroke:#4B75B9; stroke-width:4.0; stroke-linecap:round; stroke-linejoin:round; fill:#FFFFFF; fill-opacity:1.0" />
-<polyline points="46.34,10.00 20.36,45.00 20.36,65.00 37.68,95.00" style="stroke:#4B75B9; stroke-width:4.0; stroke-linecap:round; stroke-linejoin:round; fill:#FFFFFF; fill-opacity:0.0" />
-<polyline points="46.34,10.00 37.68,35.00 37.68,75.00 46.34,100.00" style="stroke:#4B75B9; stroke-width:4.0; stroke-linecap:round; stroke-linejoin:round; fill:#FFFFFF; fill-opacity:0.0" />
-<polyline points="63.66,10.00 72.32,35.00 72.32,75.00 63.66,100.00" style="stroke:#4B75B9; stroke-width:4.0; stroke-linecap:round; stroke-linejoin:round; fill:#FFFFFF; fill-opacity:0.0" />
-<polyline points="63.66,10.00 89.64,45.00 89.64,65.00 72.32,95.00" style="stroke:#4B75B9; stroke-width:4.0; stroke-linecap:round; stroke-linejoin:round; fill:#FFFFFF; fill-opacity:0.0" />
-<polyline points="29.02,20.00 29.02,30.00 46.34,40.00 63.66,40.00 80.98,30.00 80.98,20.00" style="stroke:#4B75B9; stroke-width:4.0; stroke-linecap:round; stroke-linejoin:round; fill:#FFFFFF; fill-opacity:0.0" />
-<polyline points="11.70,40.00 20.36,55.00 37.68,65.00 72.32,65.00 89.64,55.00 98.30,40.00" style="stroke:#4B75B9; stroke-width:4.0; stroke-linecap:round; stroke-linejoin:round; fill:#FFFFFF; fill-opacity:0.0" />
-<polyline points="11.70,60.00 20.36,75.00 46.34,90.00 63.66,90.00 89.64,75.00 98.30,60.00" style="stroke:#4B75B9; stroke-width:4.0; stroke-linecap:round; stroke-linejoin:round; fill:#FFFFFF; fill-opacity:0.0" />
+<polyline points="46.34,10.00 20.36,45.00 20.36,65.00 37.68,95.00" style="stroke:#4B75B9; stroke-width:4.0; stroke-linecap:round; stroke-linejoin:round; fill-opacity:0.0" />
+<polyline points="46.34,10.00 37.68,35.00 37.68,75.00 46.34,100.00" style="stroke:#4B75B9; stroke-width:4.0; stroke-linecap:round; stroke-linejoin:round; fill-opacity:0.0" />
+<polyline points="63.66,10.00 72.32,35.00 72.32,75.00 63.66,100.00" style="stroke:#4B75B9; stroke-width:4.0; stroke-linecap:round; stroke-linejoin:round; fill-opacity:0.0" />
+<polyline points="63.66,10.00 89.64,45.00 89.64,65.00 72.32,95.00" style="stroke:#4B75B9; stroke-width:4.0; stroke-linecap:round; stroke-linejoin:round; fill-opacity:0.0" />
+<polyline points="29.02,20.00 29.02,30.00 46.34,40.00 63.66,40.00 80.98,30.00 80.98,20.00" style="stroke:#4B75B9; stroke-width:4.0; stroke-linecap:round; stroke-linejoin:round; fill-opacity:0.0" />
+<polyline points="11.70,40.00 20.36,55.00 37.68,65.00 72.32,65.00 89.64,55.00 98.30,40.00" style="stroke:#4B75B9; stroke-width:4.0; stroke-linecap:round; stroke-linejoin:round; fill-opacity:0.0" />
+<polyline points="11.70,60.00 20.36,75.00 46.34,90.00 63.66,90.00 89.64,75.00 98.30,60.00" style="stroke:#4B75B9; stroke-width:4.0; stroke-linecap:round; stroke-linejoin:round; fill-opacity:0.0" />
 </svg>

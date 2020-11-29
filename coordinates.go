@@ -67,6 +67,7 @@ func (g *Glyph) addCoordinateTexts() error {
 	opts.Set("font-size", "3")
 	opts.Set("text-anchor", "middle")
 	opts.Set("fill", "#333333")
+	opts.Set("font-weight", "normal")
 	texts := []*Text{}
 	ps := GetPoints()
 	for _, k := range ps.Keys() {
