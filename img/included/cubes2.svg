@@ -5,9 +5,9 @@
      xmlns="http://www.w3.org/2000/svg"
      xmlns:xlink="http://www.w3.org/1999/xlink">
 <polygon points="20.36,35.00 20.36,55.00 37.68,65.00 37.68,85.00 55.00,95.00 72.32,85.00 72.32,65.00 89.64,55.00 89.64,35.00 72.32,25.00 55.00,35.00 37.68,25.00 20.36,35.00" style="stroke:#4B75B9; stroke-width:4.0; stroke-linecap:round; stroke-linejoin:round; fill:#FFFFFF; fill-opacity:1.0" />
-<polyline points="20.36,35.00 37.68,45.00 55.00,35.00 72.32,45.00 89.64,35.00" style="stroke:#4B75B9; stroke-width:4.0; stroke-linecap:round; stroke-linejoin:round; fill:#FFFFFF; fill-opacity:0.0" />
-<polyline points="37.68,45.00 37.68,65.00 55.00,55.00 72.32,65.00 72.32,45.00" style="stroke:#4B75B9; stroke-width:4.0; stroke-linecap:round; stroke-linejoin:round; fill:#FFFFFF; fill-opacity:0.0" />
-<line x1="55.00" y1="35.00" x2="55.00" y2="55.00" style="stroke:#4B75B9; stroke-width:4.0; stroke-linecap:round; stroke-linejoin:round; fill:#FFFFFF; fill-opacity:0.0" />
-<polyline points="37.68,65.00 55.00,75.00 72.32,65.00" style="stroke:#4B75B9; stroke-width:4.0; stroke-linecap:round; stroke-linejoin:round; fill:#FFFFFF; fill-opacity:0.0" />
-<line x1="55.00" y1="75.00" x2="55.00" y2="95.00" style="stroke:#4B75B9; stroke-width:4.0; stroke-linecap:round; stroke-linejoin:round; fill:#FFFFFF; fill-opacity:0.0" />
+<polyline points="20.36,35.00 37.68,45.00 55.00,35.00 72.32,45.00 89.64,35.00" style="stroke:#4B75B9; stroke-width:4.0; stroke-linecap:round; stroke-linejoin:round; fill-opacity:0.0" />
+<polyline points="37.68,45.00 37.68,65.00 55.00,55.00 72.32,65.00 72.32,45.00" style="stroke:#4B75B9; stroke-width:4.0; stroke-linecap:round; stroke-linejoin:round; fill-opacity:0.0" />
+<line x1="55.00" y1="35.00" x2="55.00" y2="55.00" style="stroke:#4B75B9; stroke-width:4.0; stroke-linecap:round; stroke-linejoin:round; fill-opacity:0.0" />
+<polyline points="37.68,65.00 55.00,75.00 72.32,65.00" style="stroke:#4B75B9; stroke-width:4.0; stroke-linecap:round; stroke-linejoin:round; fill-opacity:0.0" />
+<line x1="55.00" y1="75.00" x2="55.00" y2="95.00" style="stroke:#4B75B9; stroke-width:4.0; stroke-linecap:round; stroke-linejoin:round; fill-opacity:0.0" />
 </svg>

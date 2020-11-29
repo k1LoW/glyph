@@ -5,7 +5,7 @@
      xmlns="http://www.w3.org/2000/svg"
      xmlns:xlink="http://www.w3.org/1999/xlink">
 <polygon points="55.00,15.00 20.36,35.00 20.36,75.00 55.00,95.00 89.64,75.00 89.64,35.00 55.00,15.00" style="stroke:#4B75B9; stroke-width:4.0; stroke-linecap:round; stroke-linejoin:round; fill:#FFFFFF; fill-opacity:1.0" />
-<line x1="29.02" y1="40.00" x2="55.00" y2="55.00" style="stroke:#4B75B9; stroke-width:4.0; stroke-linecap:round; stroke-linejoin:round; fill:#FFFFFF; fill-opacity:0.0" />
-<line x1="55.00" y1="55.00" x2="55.00" y2="85.00" style="stroke:#4B75B9; stroke-width:4.0; stroke-linecap:round; stroke-linejoin:round; fill:#FFFFFF; fill-opacity:0.0" />
-<line x1="63.66" y1="50.00" x2="89.64" y2="35.00" style="stroke:#4B75B9; stroke-width:4.0; stroke-linecap:round; stroke-linejoin:round; fill:#FFFFFF; fill-opacity:0.0" />
+<line x1="29.02" y1="40.00" x2="55.00" y2="55.00" style="stroke:#4B75B9; stroke-width:4.0; stroke-linecap:round; stroke-linejoin:round; fill-opacity:0.0" />
+<line x1="55.00" y1="55.00" x2="55.00" y2="85.00" style="stroke:#4B75B9; stroke-width:4.0; stroke-linecap:round; stroke-linejoin:round; fill-opacity:0.0" />
+<line x1="63.66" y1="50.00" x2="89.64" y2="35.00" style="stroke:#4B75B9; stroke-width:4.0; stroke-linecap:round; stroke-linejoin:round; fill-opacity:0.0" />
 </svg>
