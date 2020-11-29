@@ -178,23 +178,11 @@ func (g *Glyph) Line(points []string, opts ...string) error {
 		}
 		l.points = append(l.points, p)
 	}
-	if l.points[0].X == l.points[len(l.points)-1].X && l.points[0].Y == l.points[len(l.points)-1].Y {
-		// polygon
-		if _, exist := m.Get("fill-opacity"); !exist {
-			m.Set("fill-opacity", "1.0")
-		}
-	} else {
-		// line, polyline
-		if _, exist := m.Get("fill-opacity"); !exist {
-			m.Set("fill-opacity", "0.0")
-		}
-	}
 	for _, opt := range opts {
 		splited := strings.Split(opt, ":")
 		m.Set(strings.Trim(splited[0], " ;"), strings.Trim(splited[1], " ;"))
 	}
 	l.opts = m
-
 	g.lines = append(g.lines, l)
 	return nil
 }
@@ -265,6 +253,19 @@ func (g *Glyph) writeSVG(w io.Writer) error {
 			v, _ := l.opts.Get(k)
 			m.Set(k, v.(string))
 		}
+		if l.points[0].X == l.points[len(l.points)-1].X && l.points[0].Y == l.points[len(l.points)-1].Y {
+			// polygon
+			if _, exist := m.Get("fill-opacity"); !exist {
+				m.Set("fill-opacity", "1.0")
+			}
+		} else {
+			// line, polyline
+			if _, exist := m.Get("fill-opacity"); !exist {
+				m.Set("fill-opacity", "0.0")
+			}
+			_ = m.Delete("fill")
+		}
+
 		opts := []string{}
 		for _, k := range m.Keys() {
 			v, _ := m.Get(k)
