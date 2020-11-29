@@ -30,6 +30,10 @@ var included = []struct {
 			"d0 d1 g3 g7 h7 h2 d0",
 			"d0 d1 g3 g7 h7 h2 d0",
 			"f1 f2 h2 h6 j6 j1 f1",
+			"c2 d3",
+			"c3 e5",
+			"c4 e6",
+			"d6 e7",
 		},
 		[]string{},
 		[]string{"document"},
@@ -280,6 +284,18 @@ var included = []struct {
 		},
 		[]string{},
 		[]string{},
+	},
+	{
+		"text",
+		[]string{
+			"d1 d6 h8 h3 d1",
+			"e3 f4",
+			"e4 g5",
+			"e5 g6",
+			"f7 g7",
+		},
+		[]string{},
+		[]string{"page"},
 	},
 }
 

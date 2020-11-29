@@ -12,12 +12,12 @@
 | cube5 | ![cube5](img/included/cube5.svg) | ![cube5](img/included/cube5.png) |
 | cubes | ![cubes](img/included/cubes.svg) | ![cubes](img/included/cubes.png) |
 | cubes2 | ![cubes2](img/included/cubes2.svg) | ![cubes2](img/included/cubes2.png) |
-| db ( img/included/db.png ) | ![db](img/included/db.svg) | ![db](img/included/db.png) |
-| doc ( img/included/doc.png ) | ![doc](img/included/doc.svg) | ![doc](img/included/doc.png) |
+| db ( database ) | ![db](img/included/db.svg) | ![db](img/included/db.png) |
+| doc ( document ) | ![doc](img/included/doc.svg) | ![doc](img/included/doc.png) |
 | gear | ![gear](img/included/gear.svg) | ![gear](img/included/gear.png) |
 | globe | ![globe](img/included/globe.svg) | ![globe](img/included/globe.png) |
-| hex ( img/included/hex.png ) | ![hex](img/included/hex.svg) | ![hex](img/included/hex.png) |
-| hex2 ( img/included/hex2.png ) | ![hex2](img/included/hex2.svg) | ![hex2](img/included/hex2.png) |
+| hex ( hexagon ) | ![hex](img/included/hex.svg) | ![hex](img/included/hex.png) |
+| hex2 ( hexagon2 ) | ![hex2](img/included/hex2.svg) | ![hex2](img/included/hex2.png) |
 | lb | ![lb](img/included/lb.svg) | ![lb](img/included/lb.png) |
 | lb-l4 | ![lb-l4](img/included/lb-l4.svg) | ![lb-l4](img/included/lb-l4.png) |
 | lb-l7 | ![lb-l7](img/included/lb-l7.svg) | ![lb-l7](img/included/lb-l7.png) |
@@ -25,3 +25,4 @@
 | proxy | ![proxy](img/included/proxy.svg) | ![proxy](img/included/proxy.png) |
 | shield | ![shield](img/included/shield.svg) | ![shield](img/included/shield.png) |
 | terminal | ![terminal](img/included/terminal.svg) | ![terminal](img/included/terminal.png) |
+| text ( page ) | ![text](img/included/text.svg) | ![text](img/included/text.png) |
