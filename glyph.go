@@ -6,6 +6,7 @@ import (
 	"image"
 	"image/png"
 	"io"
+	"strconv"
 	"strings"
 
 	svgo "github.com/ajstarks/svgo/float"
@@ -308,6 +309,17 @@ func (g *Glyph) writeSVG(w io.Writer) error {
 
 func (g *Glyph) writePNG(w io.Writer) error {
 	svgbuf := new(bytes.Buffer)
+
+	// oksvg workaround
+	sw, exist := g.lineOpts.Get("stroke-width")
+	if exist {
+		fsw, err := strconv.ParseFloat(sw.(string), 64)
+		if err != nil {
+			return err
+		}
+		g.lineOpts.Set("stroke-width", strconv.FormatFloat(fsw*(g.w/g.vw), 'f', -1, 64))
+	}
+
 	if err := g.Write(svgbuf); err != nil {
 		return err
 	}
