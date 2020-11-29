@@ -20,7 +20,7 @@ const ts = `# Included Icon Set
 `
 
 func main() {
-	m := glyph.NewMapWithIncluded(glyph.Width(200.0), glyph.Height(200.0))
+	m := glyph.NewMapWithIncluded()
 	included := [][]string{}
 	aliases := glyph.IncludedAliases()
 	for _, k := range m.Keys() {
