@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	g, _ := glyph.New(glyph.Witdh(400.0), glyph.Height(400.0))
+	g, _ := glyph.New(glyph.Width(400.0), glyph.Height(400.0))
 	_ = g.ShowCoordinates()
 	if err := g.Write(os.Stdout); err != nil {
 		panic(err)

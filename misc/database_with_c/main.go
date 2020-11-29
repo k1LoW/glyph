@@ -10,7 +10,7 @@ import (
 
 func main() {
 	g, _ := glyph.Included().Get("database")
-	_ = glyph.Witdh(400.0)(g)
+	_ = glyph.Width(400.0)(g)
 	_ = glyph.Height(400.0)(g)
 	_ = g.ShowCoordinates()
 	if err := g.Write(os.Stdout); err != nil {
