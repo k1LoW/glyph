@@ -1,3 +1,9 @@
+## [v0.4.0](https://github.com/k1LoW/glyph/compare/v0.3.0...v0.4.0) (2020-11-30)
+
+* Add workaround for png (line) rendering [#7](https://github.com/k1LoW/glyph/pull/7) ([k1LoW](https://github.com/k1LoW))
+* Lazy-setting Glyph.lineOps and Glyph.textOpts [#6](https://github.com/k1LoW/glyph/pull/6) ([k1LoW](https://github.com/k1LoW))
+* Add Map.Set and Map.Delete [#5](https://github.com/k1LoW/glyph/pull/5) ([k1LoW](https://github.com/k1LoW))
+
 ## [v0.3.0](https://github.com/k1LoW/glyph/compare/v0.2.0...v0.3.0) (2020-11-28)
 
 * Add function for setting line and text options [#4](https://github.com/k1LoW/glyph/pull/4) ([k1LoW](https://github.com/k1LoW))
