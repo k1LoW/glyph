@@ -55,8 +55,8 @@ type Glyph struct {
 
 type Option func(*Glyph) error
 
-// Witdh set SVG width
-func Witdh(w float64) Option {
+// Width set SVG width
+func Width(w float64) Option {
 	return func(g *Glyph) error {
 		g.w = w
 		return nil
