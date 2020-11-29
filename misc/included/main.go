@@ -12,15 +12,15 @@ import (
 
 const ts = `# Included Icon Set
 
-| Name | Icon |
-| ---- | ---- |
+| Name | Icon (SVG) | Icon (PNG) |
+| ---- | ---- | ---- |
 {{- range $_, $p := .Included }}
-| {{ index $p 0 }}{{ if ne (index $p 2) "" }} ( {{ index $p 2 }} ){{ end }} | ![{{ index $p 0 }}]({{ index $p 1 }}) |
+| {{ index $p 0 }}{{ if ne (index $p 3) "" }} ( {{ index $p 2 }} ){{ end }} | ![{{ index $p 0 }}]({{ index $p 1 }}) | ![{{ index $p 0 }}]({{ index $p 2 }}) |
 {{- end }}
 `
 
 func main() {
-	m := glyph.NewMapWithIncluded()
+	m := glyph.NewMapWithIncluded(glyph.Width(200.0), glyph.Height(200.0))
 	included := [][]string{}
 	aliases := glyph.IncludedAliases()
 	for _, k := range m.Keys() {
@@ -43,7 +43,20 @@ func main() {
 			panic(err)
 		}
 		_ = i.Close()
-		included = append(included, []string{k, p, strings.Join(a, ", ")})
+
+		pp := filepath.Join("img", "included", fmt.Sprintf("%s.png", k))
+		_, _ = fmt.Fprintf(os.Stderr, "create %s\n", pp)
+		ip, err := os.OpenFile(pp, os.O_WRONLY|os.O_CREATE|os.O_TRUNC, 0666) // #nosec
+		if err != nil {
+			panic(err)
+		}
+		if err := g.WriteImage(ip); err != nil {
+			_ = ip.Close()
+			panic(err)
+		}
+		_ = ip.Close()
+
+		included = append(included, []string{k, p, pp, strings.Join(a, ", ")})
 	}
 	tmpl := template.Must(template.New("included").Parse(ts))
 	tmplData := map[string]interface{}{
