@@ -4,19 +4,25 @@ import (
 	"bytes"
 	"fmt"
 	"image"
+	"image/color"
 	"image/png"
 	"io"
 	"strconv"
 	"strings"
 
 	svgo "github.com/ajstarks/svgo/float"
+	"github.com/beta/freetype/truetype"
 	"github.com/elliotchance/orderedmap"
 	"github.com/srwiley/oksvg"
 	"github.com/srwiley/rasterx"
+	"golang.org/x/image/font"
+	"golang.org/x/image/font/gofont/gobold"
+	"golang.org/x/image/math/fixed"
 )
 
 const defaultColor = "#4B75B9"
 const defaultFillColor = "#FFFFFF"
+const defaultFontSize = "15.0"
 
 var defaultLineOpts = []string{
 	fmt.Sprintf("stroke:%s", defaultColor),
@@ -31,7 +37,7 @@ var defaultTextOpts = []string{
 	"font-anchor:middle",
 	"font-weight:bold",
 	"font-family:Arial,sans-serif",
-	"font-size:15.0",
+	fmt.Sprintf("font-size:%s", defaultFontSize),
 }
 
 type Line struct {
@@ -310,7 +316,7 @@ func (g *Glyph) writeSVG(w io.Writer) error {
 func (g *Glyph) writePNG(w io.Writer) error {
 	svgbuf := new(bytes.Buffer)
 
-	// oksvg workaround
+	// oksvg workaround: stroke-width
 	sw, exist := g.lineOpts.Get("stroke-width")
 	if exist {
 		fsw, err := strconv.ParseFloat(sw.(string), 64)
@@ -330,7 +336,74 @@ func (g *Glyph) writePNG(w io.Writer) error {
 	icon.SetTarget(0, 0, g.w, g.h)
 	rgba := image.NewRGBA(image.Rect(0, 0, round(g.w), round(g.h)))
 	icon.Draw(rasterx.NewDasher(round(g.w), round(g.h), rasterx.NewScannerGV(round(g.w), round(g.h), rgba, rgba.Bounds())), 1)
+
+	// oksvg workaround: text
+	for _, t := range g.texts {
+		m := orderedmap.NewOrderedMap()
+		for _, k := range g.textOpts.Keys() {
+			v, _ := g.textOpts.Get(k)
+			m.Set(k, v.(string))
+		}
+		for _, k := range t.opts.Keys() {
+			v, _ := t.opts.Get(k)
+			m.Set(k, v.(string))
+		}
+		size := defaultFontSize
+		sizei, exist := m.Get("font-size")
+		if exist {
+			size = sizei.(string)
+		}
+		clr := defaultColor
+		clri, exist := m.Get("fill")
+		if exist {
+			clr = clri.(string)
+		}
+		if err := g.addTextToImage(rgba, t.point.X, t.point.Y, t.text, size, clr); err != nil {
+			return err
+		}
+	}
+
 	return png.Encode(w, rgba)
+}
+
+func (g *Glyph) addTextToImage(img *image.RGBA, x, y float64, text, size, clr string) error {
+	size64, err := strconv.ParseFloat(size, 64)
+	if err != nil {
+		return err
+	}
+
+	c, err := parseColor(clr)
+	if err != nil {
+		return err
+	}
+
+	to := &truetype.Options{
+		Size:              size64 * (g.w / g.vw),
+		DPI:               0,
+		Hinting:           font.HintingNone,
+		GlyphCacheEntries: 0,
+		SubPixelsX:        0,
+		SubPixelsY:        0,
+	}
+	f, err := truetype.Parse(gobold.TTF)
+	if err != nil {
+		return err
+	}
+	face := truetype.NewFace(f, to)
+
+	dr := &font.Drawer{
+		Dst:  img,
+		Src:  &image.Uniform{c},
+		Face: face,
+		Dot: fixed.Point26_6{
+			X: fixed.I(round(x * (g.w / g.vw))),
+			Y: fixed.I(round(y * (g.w / g.vw))),
+		},
+	}
+
+	dr.DrawString(text)
+
+	return nil
 }
 
 func round(v float64) int {
@@ -338,4 +411,26 @@ func round(v float64) int {
 		return int(v - 0.5)
 	}
 	return int(v + 0.5)
+}
+
+func parseColor(s string) (color.RGBA, error) {
+	c := color.RGBA{
+		A: 0xff,
+	}
+	switch len(s) {
+	case 7:
+		if _, err := fmt.Sscanf(s, "#%02x%02x%02x", &c.R, &c.G, &c.B); err != nil {
+			return c, fmt.Errorf("invalid color: %s", s)
+		}
+	case 4:
+		if _, err := fmt.Sscanf(s, "#%1x%1x%1x", &c.R, &c.G, &c.B); err != nil {
+			return c, fmt.Errorf("invalid color: %s", s)
+		}
+		c.R *= 17
+		c.G *= 17
+		c.B *= 17
+	default:
+		return c, fmt.Errorf("invalid color: %s", s)
+	}
+	return c, nil
 }
