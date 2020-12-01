@@ -13,11 +13,10 @@ import (
 	svgo "github.com/ajstarks/svgo/float"
 	"github.com/beta/freetype/truetype"
 	"github.com/elliotchance/orderedmap"
-	"github.com/k1LoW/ffff"
 	"github.com/srwiley/oksvg"
 	"github.com/srwiley/rasterx"
 	"golang.org/x/image/font"
-	"golang.org/x/image/font/opentype"
+	"golang.org/x/image/font/gofont/gobold"
 	"golang.org/x/image/math/fixed"
 )
 
@@ -386,15 +385,11 @@ func (g *Glyph) addTextToImage(img *image.RGBA, x, y float64, text, size, clr st
 		SubPixelsX:        0,
 		SubPixelsY:        0,
 	}
-	oo := &opentype.FaceOptions{
-		Size:    size64 * (g.w / g.vw),
-		DPI:     0,
-		Hinting: font.HintingNone,
-	}
-	face, err := ffff.FuzzyFindFace("Arial", to, oo)
+	f, err := truetype.Parse(gobold.TTF)
 	if err != nil {
 		return err
 	}
+	face := truetype.NewFace(f, to)
 
 	dr := &font.Drawer{
 		Dst:  img,
