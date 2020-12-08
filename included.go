@@ -344,6 +344,24 @@ var included = []struct {
 		[]string{},
 		[]string{},
 	},
+	{
+		"db2",
+		[]string{
+			"b0 b5 e8 g8 j5 j0 g0 e0 b0",
+			"b1 b3 e6 g6 j3 j1 g4 e4 b1",
+		},
+		[]string{},
+		[]string{"database2"},
+	},
+	{
+		"db3",
+		[]string{
+			"b0 b5 e8 g8 j5 j0 g0 e0 b0",
+			fmt.Sprintf("b1 b3 e6 g6 j3 j1 g4 e4 b1 fill:%s", defaultColor),
+		},
+		[]string{},
+		[]string{"database3"},
+	},
 }
 
 var cSet Set

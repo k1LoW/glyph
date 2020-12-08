@@ -13,6 +13,8 @@
 | cubes | ![cubes](img/included/cubes.svg) | ![cubes](img/included/cubes.png) |
 | cubes2 | ![cubes2](img/included/cubes2.svg) | ![cubes2](img/included/cubes2.png) |
 | db ( database ) | ![db](img/included/db.svg) | ![db](img/included/db.png) |
+| db2 ( database2 ) | ![db2](img/included/db2.svg) | ![db2](img/included/db2.png) |
+| db3 ( database3 ) | ![db3](img/included/db3.svg) | ![db3](img/included/db3.png) |
 | doc ( document ) | ![doc](img/included/doc.svg) | ![doc](img/included/doc.png) |
 | gear | ![gear](img/included/gear.svg) | ![gear](img/included/gear.png) |
 | globe | ![globe](img/included/globe.svg) | ![globe](img/included/globe.png) |
