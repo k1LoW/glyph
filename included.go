@@ -307,6 +307,20 @@ var included = []struct {
 		[]string{},
 		[]string{},
 	},
+	{
+		"pen2",
+		[]string{
+			"c0 c5 g8 g3 c0",
+			"d2 e3",
+			"d3 f5",
+			"d4 f6",
+			"d5 f7",
+			"f6 f7 g6 j0 i0 f6",
+			"f6 g6",
+		},
+		[]string{},
+		[]string{"write"},
+	},
 }
 
 var cSet Set

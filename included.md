@@ -23,6 +23,7 @@
 | lb-l7 | ![lb-l7](img/included/lb-l7.svg) | ![lb-l7](img/included/lb-l7.png) |
 | metrics | ![metrics](img/included/metrics.svg) | ![metrics](img/included/metrics.png) |
 | pen | ![pen](img/included/pen.svg) | ![pen](img/included/pen.png) |
+| pen2 ( write ) | ![pen2](img/included/pen2.svg) | ![pen2](img/included/pen2.png) |
 | proxy | ![proxy](img/included/proxy.svg) | ![proxy](img/included/proxy.png) |
 | shield | ![shield](img/included/shield.svg) | ![shield](img/included/shield.png) |
 | terminal | ![terminal](img/included/terminal.svg) | ![terminal](img/included/terminal.png) |
