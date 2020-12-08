@@ -48,17 +48,17 @@ func (t TextAndOpts) Parse() (string, string, []string, error) {
 	return text, point, opts, nil
 }
 
-type SubGlyph struct {
-	lines []LineAndOpts
-	texts []TextAndOpts
+type Blueprint struct {
+	RawLines []LineAndOpts `json:"lines" yaml:"lines" toml:"lines"`
+	RawTexts []TextAndOpts `json:"texts" yaml:"texts" toml:"texts"`
 }
 
-func (s SubGlyph) ToGlyph() (*Glyph, error) {
+func (b Blueprint) ToGlyph() (*Glyph, error) {
 	g, err := New()
 	if err != nil {
 		return nil, err
 	}
-	for _, l := range s.lines {
+	for _, l := range b.RawLines {
 		points, opts, err := l.Parse()
 		if err != nil {
 			return nil, err
@@ -67,7 +67,7 @@ func (s SubGlyph) ToGlyph() (*Glyph, error) {
 			return nil, err
 		}
 	}
-	for _, t := range s.texts {
+	for _, t := range b.RawTexts {
 		text, point, opts, err := t.Parse()
 		if err != nil {
 			return nil, err
@@ -79,17 +79,17 @@ func (s SubGlyph) ToGlyph() (*Glyph, error) {
 	return g, nil
 }
 
-// NewSub create new SubGlyph
-func NewSub() *SubGlyph {
-	return &SubGlyph{}
+// NewBlueprint create new Blueprint
+func NewBlueprint() *Blueprint {
+	return &Blueprint{}
 }
 
-func (s *SubGlyph) Lines(lines []LineAndOpts) *SubGlyph {
-	s.lines = lines
-	return s
+func (b *Blueprint) Lines(lines []LineAndOpts) *Blueprint {
+	b.RawLines = lines
+	return b
 }
 
-func (s *SubGlyph) Texts(texts []TextAndOpts) *SubGlyph {
-	s.texts = texts
-	return s
+func (b *Blueprint) Texts(texts []TextAndOpts) *Blueprint {
+	b.RawTexts = texts
+	return b
 }
