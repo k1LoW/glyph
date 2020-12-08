@@ -22,6 +22,7 @@
 | lb-l4 | ![lb-l4](img/included/lb-l4.svg) | ![lb-l4](img/included/lb-l4.png) |
 | lb-l7 | ![lb-l7](img/included/lb-l7.svg) | ![lb-l7](img/included/lb-l7.png) |
 | metrics | ![metrics](img/included/metrics.svg) | ![metrics](img/included/metrics.png) |
+| monitor | ![monitor](img/included/monitor.svg) | ![monitor](img/included/monitor.png) |
 | pen | ![pen](img/included/pen.svg) | ![pen](img/included/pen.png) |
 | pen2 ( write ) | ![pen2](img/included/pen2.svg) | ![pen2](img/included/pen2.png) |
 | proxy | ![proxy](img/included/proxy.svg) | ![proxy](img/included/proxy.png) |

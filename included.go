@@ -321,6 +321,17 @@ var included = []struct {
 		[]string{},
 		[]string{"write"},
 	},
+	{
+		"monitor",
+		[]string{
+			"f5 i5 k3",
+			"b2 c4 d5 i3 h1 c2 b2",
+			"k0 j6 k5 k0",
+			"c2 d5",
+		},
+		[]string{},
+		[]string{},
+	},
 }
 
 var cSet Set
