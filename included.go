@@ -297,6 +297,16 @@ var included = []struct {
 		[]string{},
 		[]string{"page"},
 	},
+	{
+		"pen",
+		[]string{
+			"d5 d7 f7 f6 h3 i0 h0 f3 e5 d5",
+			"e5 f6",
+			"d7 e6",
+		},
+		[]string{},
+		[]string{},
+	},
 }
 
 var cSet Set
