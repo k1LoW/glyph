@@ -348,7 +348,7 @@ var included = []struct {
 
 var cSet Set
 
-type Set map[string]*SubGlyph
+type Set map[string]*Blueprint
 
 func (s Set) Get(k string) (*Glyph, error) {
 	sg, ok := s[k]
@@ -382,7 +382,7 @@ func Included() Set {
 		for _, t := range g.texts {
 			to = append(to, TextAndOpts(t))
 		}
-		sg := NewSub().Lines(lo).Texts(to)
+		sg := NewBlueprint().Lines(lo).Texts(to)
 		s[g.key] = sg
 		for _, a := range g.aliases {
 			s[a] = sg
