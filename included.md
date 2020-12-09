@@ -15,6 +15,7 @@
 | db ( database ) | ![db](img/included/db.svg) | ![db](img/included/db.png) |
 | db2 ( database2 ) | ![db2](img/included/db2.svg) | ![db2](img/included/db2.png) |
 | db3 ( database3 ) | ![db3](img/included/db3.svg) | ![db3](img/included/db3.png) |
+| db4 ( database4 ) | ![db4](img/included/db4.svg) | ![db4](img/included/db4.png) |
 | doc ( document ) | ![doc](img/included/doc.svg) | ![doc](img/included/doc.png) |
 | gear | ![gear](img/included/gear.svg) | ![gear](img/included/gear.png) |
 | globe | ![globe](img/included/globe.svg) | ![globe](img/included/globe.png) |

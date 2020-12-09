@@ -400,6 +400,16 @@ var included = []struct {
 		[]string{},
 		[]string{"lifo"},
 	},
+	{
+		"db4",
+		[]string{
+			"b0 b5 e8 g8 j5 j0 g0 e0 b0",
+			"b1 e4 g4 j1",
+			fmt.Sprintf("b3 b5 e8 g8 j5 j3 g6 e6 b3 fill:%s", defaultColor),
+		},
+		[]string{},
+		[]string{"database4"},
+	},
 }
 
 var cSet Set
