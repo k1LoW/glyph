@@ -329,6 +329,12 @@ func (g *Glyph) writePNG(w io.Writer) error {
 	if err := g.Write(svgbuf); err != nil {
 		return err
 	}
+
+	// revert oksvg workaround: stroke-width
+	if exist {
+		g.lineOpts.Set("stroke-width", sw.(string))
+	}
+
 	icon, err := oksvg.ReadIconStream(svgbuf)
 	if err != nil {
 		return err
