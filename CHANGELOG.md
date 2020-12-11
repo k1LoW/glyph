@@ -1,3 +1,9 @@
+## [v0.4.1](https://github.com/k1LoW/glyph/compare/v0.4.0...v0.4.1) (2020-12-11)
+
+* Fix workaround [#10](https://github.com/k1LoW/glyph/pull/10) ([k1LoW](https://github.com/k1LoW))
+* Refactor code [#9](https://github.com/k1LoW/glyph/pull/9) ([k1LoW](https://github.com/k1LoW))
+* Add workaround for text rendering (png) [#8](https://github.com/k1LoW/glyph/pull/8) ([k1LoW](https://github.com/k1LoW))
+
 ## [v0.4.0](https://github.com/k1LoW/glyph/compare/v0.3.0...v0.4.0) (2020-11-30)
 
 * Add workaround for png (line) rendering [#7](https://github.com/k1LoW/glyph/pull/7) ([k1LoW](https://github.com/k1LoW))
