@@ -1,4 +1,4 @@
-# glyph ![build](https://github.com/k1LoW/glyph/workflows/build/badge.svg)
+# glyph [![build](https://github.com/k1LoW/glyph/workflows/build/badge.svg)](https://github.com/k1LoW/glyph/actions)
 
 Icon as Code
 
