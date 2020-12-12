@@ -49,6 +49,7 @@ func (t TextAndOpts) Parse() (string, string, []string, error) {
 }
 
 type Blueprint struct {
+	Key      string        `json:"key,omitempty" yaml:"key,omitempty" toml:"key,omitempty"`
 	RawLines []LineAndOpts `json:"lines,omitempty" yaml:"lines,omitempty" toml:"lines,omitempty"`
 	RawTexts []TextAndOpts `json:"texts,omitempty" yaml:"texts,omitempty" toml:"texts,omitempty"`
 }
@@ -77,6 +78,11 @@ func (b Blueprint) ToGlyph() (*Glyph, error) {
 		}
 	}
 	return g, nil
+}
+
+func (b Blueprint) ToGlyphAndKey() (*Glyph, string, error) {
+	g, err := b.ToGlyph()
+	return g, b.Key, err
 }
 
 // NewBlueprint create new Blueprint
