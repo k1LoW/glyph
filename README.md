@@ -1,6 +1,8 @@
 # glyph [![build](https://github.com/k1LoW/glyph/workflows/build/badge.svg)](https://github.com/k1LoW/glyph/actions)
 
-Icon as Code
+> "Icon as Code"
+
+`glyph` is a code-based icon framework.
 
 ## Concept
 
