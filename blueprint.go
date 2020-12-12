@@ -49,8 +49,8 @@ func (t TextAndOpts) Parse() (string, string, []string, error) {
 }
 
 type Blueprint struct {
-	RawLines []LineAndOpts `json:"lines" yaml:"lines" toml:"lines"`
-	RawTexts []TextAndOpts `json:"texts" yaml:"texts" toml:"texts"`
+	RawLines []LineAndOpts `json:"lines,omitempty" yaml:"lines,omitempty" toml:"lines,omitempty"`
+	RawTexts []TextAndOpts `json:"texts,omitempty" yaml:"texts,omitempty" toml:"texts,omitempty"`
 }
 
 func (b Blueprint) ToGlyph() (*Glyph, error) {
