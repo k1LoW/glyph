@@ -2,7 +2,7 @@
 
 > "Icon as Code"
 
-`glyph` is a code-based icon framework.
+`glyph` is a embedded icon framework.
 
 ## Concept
 
