@@ -14,6 +14,7 @@
 | cube5 | ![cube5](img/included/cube5.svg) | ![cube5](img/included/cube5.png) |
 | cubes | ![cubes](img/included/cubes.svg) | ![cubes](img/included/cubes.png) |
 | cubes2 | ![cubes2](img/included/cubes2.svg) | ![cubes2](img/included/cubes2.png) |
+| cubes3 | ![cubes3](img/included/cubes3.svg) | ![cubes3](img/included/cubes3.png) |
 | db ( database ) | ![db](img/included/db.svg) | ![db](img/included/db.png) |
 | db2 ( database2 ) | ![db2](img/included/db2.svg) | ![db2](img/included/db2.png) |
 | db3 ( database3 ) | ![db3](img/included/db3.svg) | ![db3](img/included/db3.png) |
