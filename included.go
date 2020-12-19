@@ -452,6 +452,31 @@ var included = []struct {
 		[]string{},
 		[]string{"timer"},
 	},
+	{
+		"server",
+		[]string{
+			"a1 a3 g8 g7 k3 k1 g1 b2 a1",
+			"b2 g6 g7",
+			"f6 k1",
+			"b3 e6",
+		},
+		[]string{},
+		[]string{},
+	},
+	{
+		"servers",
+		[]string{
+			"a0 a4 g9 g8 k4 k0 g0 b1 a0",
+			"b1 g5 g8",
+			"f5 k0",
+			"g6 k2",
+			"b2 e5",
+			"a2 g7",
+			"b4 e7",
+		},
+		[]string{},
+		[]string{},
+	},
 }
 
 var cSet Set

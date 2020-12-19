@@ -35,6 +35,8 @@
 | proxy | ![proxy](img/included/proxy.svg) | ![proxy](img/included/proxy.png) |
 | queue ( fifo ) | ![queue](img/included/queue.svg) | ![queue](img/included/queue.png) |
 | queue2 ( lifo ) | ![queue2](img/included/queue2.svg) | ![queue2](img/included/queue2.png) |
+| server | ![server](img/included/server.svg) | ![server](img/included/server.png) |
+| servers | ![servers](img/included/servers.svg) | ![servers](img/included/servers.png) |
 | shield | ![shield](img/included/shield.svg) | ![shield](img/included/shield.png) |
 | terminal | ![terminal](img/included/terminal.svg) | ![terminal](img/included/terminal.png) |
 | text ( page ) | ![text](img/included/text.svg) | ![text](img/included/text.png) |
