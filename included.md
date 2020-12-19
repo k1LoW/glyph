@@ -4,6 +4,7 @@
 | ---- | ---- | ---- |
 | blocks | ![blocks](img/included/blocks.svg) | ![blocks](img/included/blocks.png) |
 | browser | ![browser](img/included/browser.svg) | ![browser](img/included/browser.png) |
+| clock ( timer ) | ![clock](img/included/clock.svg) | ![clock](img/included/clock.png) |
 | cloud | ![cloud](img/included/cloud.svg) | ![cloud](img/included/cloud.png) |
 | cube | ![cube](img/included/cube.svg) | ![cube](img/included/cube.png) |
 | cube2 | ![cube2](img/included/cube2.svg) | ![cube2](img/included/cube2.png) |

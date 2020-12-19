@@ -441,6 +441,17 @@ var included = []struct {
 		[]string{},
 		[]string{},
 	},
+	{
+		"clock",
+		[]string{
+			"f2 f3",
+			"c3 c4 d6 e7 g7 h6 i4 i3 h2 g2 e2 d2 c3",
+			"e1 g1",
+			"f3 f5 h3",
+		},
+		[]string{},
+		[]string{"timer"},
+	},
 }
 
 var cSet Set
