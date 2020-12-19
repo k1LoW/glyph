@@ -3,6 +3,7 @@
 | Name | Icon (SVG) | Icon (PNG) |
 | ---- | ---- | ---- |
 | blocks | ![blocks](img/included/blocks.svg) | ![blocks](img/included/blocks.png) |
+| blocks2 | ![blocks2](img/included/blocks2.svg) | ![blocks2](img/included/blocks2.png) |
 | browser | ![browser](img/included/browser.svg) | ![browser](img/included/browser.png) |
 | clock ( timer ) | ![clock](img/included/clock.svg) | ![clock](img/included/clock.png) |
 | cloud | ![cloud](img/included/cloud.svg) | ![cloud](img/included/cloud.png) |

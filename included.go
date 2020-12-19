@@ -477,6 +477,22 @@ var included = []struct {
 		[]string{},
 		[]string{},
 	},
+	{
+		"blocks2",
+		[]string{
+			"b1 b5 f9 j5 j1 f1 b1",
+			"b3 f7 f9",
+			"f7 j3",
+			"b1 d3 d7",
+			"d3 f3 f5",
+			"d1 h3 h7",
+			"h3 j1",
+			"d5 f5 h5",
+			"f3 h1",
+		},
+		[]string{},
+		[]string{},
+	},
 }
 
 var cSet Set
