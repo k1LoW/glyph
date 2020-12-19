@@ -410,6 +410,37 @@ var included = []struct {
 		[]string{},
 		[]string{"database4"},
 	},
+	{
+		"key",
+		[]string{
+			"c1 c2 d4 e5 e9 fa g9 g8 f8 g7 f7 g6 g5 h4 i2 i1 h0 g0 e0 d0 c1",
+			"e1 e2 g2 g1 e1",
+		},
+		[]string{},
+		[]string{},
+	},
+	{
+		"lock",
+		[]string{
+			"d1 d3 e4 e2 g2 g4 h3 h1 g1 e1 d1",
+			"c3 c7 d8 h8 i7 i3 h3 d3 c3",
+			fmt.Sprintf("e5 e6 f7 g6 g5 f5 e5 fill:%s", defaultColor),
+			"f7 f8",
+		},
+		[]string{},
+		[]string{},
+	},
+	{
+		"unlock",
+		[]string{
+			"d0 d2 e2 e1 g1 g4 h3 h0 g0 e0 d0",
+			"c3 c7 d8 h8 i7 i3 h3 d3 c3",
+			fmt.Sprintf("e5 e6 f7 g6 g5 f5 e5 fill:%s", defaultColor),
+			"f7 f8",
+		},
+		[]string{},
+		[]string{},
+	},
 }
 
 var cSet Set

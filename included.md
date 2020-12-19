@@ -21,9 +21,11 @@
 | globe | ![globe](img/included/globe.svg) | ![globe](img/included/globe.png) |
 | hex ( hexagon ) | ![hex](img/included/hex.svg) | ![hex](img/included/hex.png) |
 | hex2 ( hexagon2 ) | ![hex2](img/included/hex2.svg) | ![hex2](img/included/hex2.png) |
+| key | ![key](img/included/key.svg) | ![key](img/included/key.png) |
 | lb | ![lb](img/included/lb.svg) | ![lb](img/included/lb.png) |
 | lb-l4 | ![lb-l4](img/included/lb-l4.svg) | ![lb-l4](img/included/lb-l4.png) |
 | lb-l7 | ![lb-l7](img/included/lb-l7.svg) | ![lb-l7](img/included/lb-l7.png) |
+| lock | ![lock](img/included/lock.svg) | ![lock](img/included/lock.png) |
 | metrics | ![metrics](img/included/metrics.svg) | ![metrics](img/included/metrics.png) |
 | monitor | ![monitor](img/included/monitor.svg) | ![monitor](img/included/monitor.png) |
 | monitor2 | ![monitor2](img/included/monitor2.svg) | ![monitor2](img/included/monitor2.png) |
@@ -35,3 +37,4 @@
 | shield | ![shield](img/included/shield.svg) | ![shield](img/included/shield.png) |
 | terminal | ![terminal](img/included/terminal.svg) | ![terminal](img/included/terminal.png) |
 | text ( page ) | ![text](img/included/text.svg) | ![text](img/included/text.png) |
+| unlock | ![unlock](img/included/unlock.svg) | ![unlock](img/included/unlock.png) |
