@@ -25,6 +25,7 @@ build:
 	go build -ldflags="$(BUILD_LDFLAGS)"
 
 doc:
+	go run ./misc/logo/main.go > img/logo.svg
 	go run ./misc/coordinates/main.go > img/coordinates.svg
 	go run ./misc/database_with_c/main.go > img/database_with_c.svg
 	go run ./misc/included/main.go
