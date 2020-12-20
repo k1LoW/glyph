@@ -78,9 +78,9 @@ var included = []struct {
 	{
 		"terminal",
 		[]string{
-			fmt.Sprintf("d0 d5 i7 i2 d0 fill:%s", defaultColor),
-			fmt.Sprintf("e2 f4 e4 stroke:%s", defaultFillColor),
-			fmt.Sprintf("f5 g5 stroke:%s", defaultFillColor),
+			fmt.Sprintf("d0 d5 i7 i2 d0 fill:%s", BaseColorKey),
+			fmt.Sprintf("e2 f4 e4 stroke:%s", BaseFillColorKey),
+			fmt.Sprintf("f5 g5 stroke:%s", BaseFillColorKey),
 		},
 		[]string{},
 		[]string{},
@@ -238,7 +238,7 @@ var included = []struct {
 		"hex2",
 		[]string{
 			"f1 b1 b5 f9 j5 j1 f1",
-			fmt.Sprintf("d3 d5 f7 h5 h3 f3 d3 fill:%s", defaultColor),
+			fmt.Sprintf("d3 d5 f7 h5 h3 f3 d3 fill:%s", BaseColorKey),
 		},
 		[]string{},
 		[]string{"hexagon2"},
@@ -357,7 +357,7 @@ var included = []struct {
 		"db3",
 		[]string{
 			"b0 b5 e8 g8 j5 j0 g0 e0 b0",
-			fmt.Sprintf("b1 b3 e6 g6 j3 j1 g4 e4 b1 fill:%s", defaultColor),
+			fmt.Sprintf("b1 b3 e6 g6 j3 j1 g4 e4 b1 fill:%s", BaseColorKey),
 		},
 		[]string{},
 		[]string{"database3"},
@@ -405,7 +405,7 @@ var included = []struct {
 		[]string{
 			"b0 b5 e8 g8 j5 j0 g0 e0 b0",
 			"b1 e4 g4 j1",
-			fmt.Sprintf("b3 b5 e8 g8 j5 j3 g6 e6 b3 fill:%s", defaultColor),
+			fmt.Sprintf("b3 b5 e8 g8 j5 j3 g6 e6 b3 fill:%s", BaseColorKey),
 		},
 		[]string{},
 		[]string{"database4"},
@@ -424,7 +424,7 @@ var included = []struct {
 		[]string{
 			"d1 d3 e4 e2 g2 g4 h3 h1 g1 e1 d1",
 			"c3 c7 d8 h8 i7 i3 h3 d3 c3",
-			fmt.Sprintf("e5 e6 f7 g6 g5 f5 e5 fill:%s", defaultColor),
+			fmt.Sprintf("e5 e6 f7 g6 g5 f5 e5 fill:%s", BaseColorKey),
 			"f7 f8",
 		},
 		[]string{},
@@ -435,7 +435,7 @@ var included = []struct {
 		[]string{
 			"d0 d2 e2 e1 g1 g4 h3 h0 g0 e0 d0",
 			"c3 c7 d8 h8 i7 i3 h3 d3 c3",
-			fmt.Sprintf("e5 e6 f7 g6 g5 f5 e5 fill:%s", defaultColor),
+			fmt.Sprintf("e5 e6 f7 g6 g5 f5 e5 fill:%s", BaseColorKey),
 			"f7 f8",
 		},
 		[]string{},
