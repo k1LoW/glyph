@@ -24,6 +24,9 @@ const defaultColor = "#4B75B9"
 const defaultFillColor = "#FFFFFF"
 const defaultFontSize = "15.0"
 
+const BaseColorKey = "baseColor"
+const BaseFillColorKey = "baseFillColor"
+
 var defaultLineOpts = []string{
 	fmt.Sprintf("stroke:%s", defaultColor),
 	"stroke-width:4.0",
@@ -53,6 +56,9 @@ type Text struct {
 
 type Glyph struct {
 	w, h, minx, miny, vw, vh float64
+	baseColor                string
+	baseFillColor            string
+	baseTextColor            string
 	lineOpts                 *orderedmap.OrderedMap
 	lines                    []*Line
 	texts                    []*Text
@@ -81,6 +87,7 @@ func Height(h float64) Option {
 // Color set SVG line 'stroke'
 func Color(c string) Option {
 	return func(g *Glyph) error {
+		g.baseColor = c
 		g.lineOpts.Set("stroke", c)
 		return nil
 	}
@@ -89,6 +96,7 @@ func Color(c string) Option {
 // FillColor set SVG line 'fill'
 func FillColor(c string) Option {
 	return func(g *Glyph) error {
+		g.baseFillColor = c
 		g.lineOpts.Set("fill", c)
 		return nil
 	}
@@ -97,6 +105,7 @@ func FillColor(c string) Option {
 // TextColor set SVG text 'fill'
 func TextColor(c string) Option {
 	return func(g *Glyph) error {
+		g.baseTextColor = c
 		g.textOpts.Set("fill", c)
 		return nil
 	}
@@ -151,6 +160,9 @@ func New(opts ...Option) (*Glyph, error) {
 		miny:            0.0,
 		vw:              110.0,
 		vh:              110.0,
+		baseColor:       defaultColor,
+		baseFillColor:   defaultFillColor,
+		baseTextColor:   defaultColor,
 		lineOpts:        orderedmap.NewOrderedMap(),
 		textOpts:        orderedmap.NewOrderedMap(),
 		showCoordinates: false,
@@ -254,10 +266,22 @@ func (g *Glyph) writeSVG(w io.Writer) error {
 		m := orderedmap.NewOrderedMap()
 		for _, k := range g.lineOpts.Keys() {
 			v, _ := g.lineOpts.Get(k)
+			switch v.(string) {
+			case BaseColorKey:
+				v = g.baseColor
+			case BaseFillColorKey:
+				v = g.baseFillColor
+			}
 			m.Set(k, v.(string))
 		}
 		for _, k := range l.opts.Keys() {
 			v, _ := l.opts.Get(k)
+			switch v.(string) {
+			case BaseColorKey:
+				v = g.baseColor
+			case BaseFillColorKey:
+				v = g.baseFillColor
+			}
 			m.Set(k, v.(string))
 		}
 		if l.points[0].X == l.points[len(l.points)-1].X && l.points[0].Y == l.points[len(l.points)-1].Y {
@@ -295,10 +319,22 @@ func (g *Glyph) writeSVG(w io.Writer) error {
 		m := orderedmap.NewOrderedMap()
 		for _, k := range g.textOpts.Keys() {
 			v, _ := g.textOpts.Get(k)
+			switch v.(string) {
+			case BaseColorKey:
+				v = g.baseColor
+			case BaseFillColorKey:
+				v = g.baseFillColor
+			}
 			m.Set(k, v.(string))
 		}
 		for _, k := range t.opts.Keys() {
 			v, _ := t.opts.Get(k)
+			switch v.(string) {
+			case BaseColorKey:
+				v = g.baseColor
+			case BaseFillColorKey:
+				v = g.baseFillColor
+			}
 			m.Set(k, v.(string))
 		}
 		opts := []string{}
