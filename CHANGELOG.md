@@ -1,3 +1,7 @@
+## [v0.5.0](https://github.com/k1LoW/glyph/compare/v0.4.1...v0.5.0) (2020-12-20)
+
+* Use base colors [#11](https://github.com/k1LoW/glyph/pull/11) ([k1LoW](https://github.com/k1LoW))
+
 ## [v0.4.1](https://github.com/k1LoW/glyph/compare/v0.4.0...v0.4.1) (2020-12-11)
 
 * Fix workaround [#10](https://github.com/k1LoW/glyph/pull/10) ([k1LoW](https://github.com/k1LoW))
