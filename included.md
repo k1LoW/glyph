@@ -1,7 +1,7 @@
 # Included Icon Set
 
 | Name | Icon (SVG) | Icon (PNG) | Icon (Custom color) |
-| ---- | ---- | ---- |
+| ---- | ---- | ---- | ---- |
 | blocks | ![blocks](img/included/blocks.svg) | ![blocks](img/included/blocks.png) | ![blocks](img/included/blocks_cc.svg) |
 | blocks2 | ![blocks2](img/included/blocks2.svg) | ![blocks2](img/included/blocks2.png) | ![blocks2](img/included/blocks2_cc.svg) |
 | browser | ![browser](img/included/browser.svg) | ![browser](img/included/browser.png) | ![browser](img/included/browser_cc.svg) |

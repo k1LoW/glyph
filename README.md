@@ -4,8 +4,6 @@
 <img src="https://github.com/k1LoW/glyph/raw/main/img/logo.svg" width="300" alt="glyph">
 </p>
 
-> "Icon as Code"
-
 `glyph` is a embedded icon framework.
 
 ## Concept

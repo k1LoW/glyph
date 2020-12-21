@@ -15,7 +15,7 @@ import (
 const ts = `# Included Icon Set
 
 | Name | Icon (SVG) | Icon (PNG) | Icon (Custom color) |
-| ---- | ---- | ---- |
+| ---- | ---- | ---- | ---- |
 {{- range $_, $p := .Included }}
 | {{ index $p 0 }}{{ if ne (index $p 4) "" }} ( {{ index $p 3 }} ){{ end }} | ![{{ index $p 0 }}]({{ index $p 1 }}) | ![{{ index $p 0 }}]({{ index $p 2 }}) | ![{{ index $p 0 }}]({{ index $p 3 }}) |
 {{- end }}
