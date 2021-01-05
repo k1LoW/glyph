@@ -510,6 +510,17 @@ var included = []struct {
 		[]string{},
 		[]string{},
 	},
+	{
+		"user",
+		[]string{
+			"c7 i7 h8 d8 c7",
+			"d0 d2 f4 h2 h0 f0 d0",
+			"b5 d7 h7 j5 i4 g4 e4 c4 b5",
+			"d5 d8 h8 h5 d5",
+		},
+		[]string{},
+		[]string{},
+	},
 }
 
 var cSet Set

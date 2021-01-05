@@ -43,3 +43,4 @@
 | terminal | ![terminal](img/included/terminal.svg) | ![terminal](img/included/terminal.png) | ![terminal](img/included/terminal_cc.svg) |
 | text ( img/included/text_cc.svg ) | ![text](img/included/text.svg) | ![text](img/included/text.png) | ![text](img/included/text_cc.svg) |
 | unlock | ![unlock](img/included/unlock.svg) | ![unlock](img/included/unlock.png) | ![unlock](img/included/unlock_cc.svg) |
+| user | ![user](img/included/user.svg) | ![user](img/included/user.png) | ![user](img/included/user_cc.svg) |
