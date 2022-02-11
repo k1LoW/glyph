@@ -1,4 +1,5 @@
-coverage.txt
+/dist/
+coverage.out
 .envrc
 .go-version
 .DS_Store
