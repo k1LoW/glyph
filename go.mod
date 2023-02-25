@@ -10,6 +10,6 @@ require (
 	github.com/google/go-cmp v0.5.3
 	github.com/srwiley/oksvg v0.0.0-20200311192757-870daf9aa564
 	github.com/srwiley/rasterx v0.0.0-20200120212402-85cb7272f5e9
-	golang.org/x/image v0.0.0-20200927104501-e162460cd6b5
+	golang.org/x/image v0.5.0
 	golang.org/x/net v0.7.0 // indirect
 )
