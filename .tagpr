@@ -1,0 +1,8 @@
+# config file for the tagpr in git config format
+[tagpr]
+	vPrefix = true
+	releaseBranch = main
+	command = "make prerelease_for_tagpr"
+	versionFile = -
+	majorLabels = "tagpr:major"
+	minorLabels = "tagpr:minor"
