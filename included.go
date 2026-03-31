@@ -544,7 +544,7 @@ func (s Set) Keys() []string {
 	return keys
 }
 
-// Included return included icon set
+// Included return included icon set.
 func Included() Set {
 	if len(cSet) > 0 {
 		return cSet
@@ -569,7 +569,7 @@ func Included() Set {
 	return s
 }
 
-// IncludedAliases return included icon aliases
+// IncludedAliases return included icon aliases.
 func IncludedAliases() map[string][]string {
 	aliases := map[string][]string{}
 	for _, g := range included {

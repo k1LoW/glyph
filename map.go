@@ -5,10 +5,31 @@ import (
 	"sort"
 )
 
-// Map is icon (glyph) map
+// Map is icon (glyph) map.
 type Map struct {
 	opts   []Option
 	glyphs map[string]*Glyph
+}
+
+// NewMap return *Map.
+func NewMap(opts ...Option) *Map {
+	return &Map{
+		opts:   opts,
+		glyphs: make(map[string]*Glyph),
+	}
+}
+
+// NewMapWithIncluded return *Map with Included icons.
+func NewMapWithIncluded(opts ...Option) *Map {
+	m := NewMap(opts...)
+	for k, sg := range Included() {
+		g, err := sg.ToGlyph()
+		if err != nil {
+			panic(err)
+		}
+		m.glyphs[k] = g
+	}
+	return m
 }
 
 func (m *Map) Keys() []string {
@@ -39,25 +60,4 @@ func (m *Map) Set(k string, g *Glyph) {
 
 func (m *Map) Delete(k string) {
 	delete(m.glyphs, k)
-}
-
-// NewMap return *Map
-func NewMap(opts ...Option) *Map {
-	return &Map{
-		opts:   opts,
-		glyphs: make(map[string]*Glyph),
-	}
-}
-
-// NewMapWithIncluded *Map with Included icons
-func NewMapWithIncluded(opts ...Option) *Map {
-	m := NewMap(opts...)
-	for k, sg := range Included() {
-		g, err := sg.ToGlyph()
-		if err != nil {
-			panic(err)
-		}
-		m.glyphs[k] = g
-	}
-	return m
 }

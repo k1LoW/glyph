@@ -29,7 +29,9 @@ lines:
 	}
 	for _, tt := range tests {
 		b := NewBlueprint()
-		yaml.Unmarshal([]byte(tt.in), b)
+		if err := yaml.Unmarshal([]byte(tt.in), b); err != nil {
+			t.Fatal(err)
+		}
 		g, key, err := b.ToGlyphAndKey()
 		if err != nil {
 			t.Fatal(err)

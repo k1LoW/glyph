@@ -1,4 +1,4 @@
-name: build
+name: CI
 
 on:
   push:
@@ -10,32 +10,31 @@ jobs:
   job-test:
     name: Test
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        go_version: [1.17]
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    permissions:
+      contents: write
+      pull-requests: write
     steps:
-      - name: Set up Go ${{ matrix.go_version }}
-        uses: actions/setup-go@v2
-        with:
-          go-version: ${{ matrix.go_version }}
-
       - name: Check out source code
-        uses: actions/checkout@v2
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
 
-      - name: Get branch
-        id: get_branch
-        run: echo ::set-output name=GITHUB_BRANCH::${GITHUB_REF/refs\/heads\//}
+      - name: Set up Go
+        uses: actions/setup-go@4b73464bb391d4059bd26b0524d20df3927bd417 # v6.3.0
+        with:
+          go-version-file: go.mod
+          cache: true
 
-      - name: Update images
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          make ci_doc
-        env:
-          GITHUB_BRANCH: ${{ steps.get_branch.outputs.GITHUB_BRANCH }}
+      - name: Run lint
+        uses: reviewdog/action-golangci-lint@c76cceaaab89abe74e649d2e34c6c9adc26662d2 # v2.10.0
+        with:
+          fail_level: error
+          go_version_file: go.mod
+          golangci_lint_flags: --timeout=5m
+          cache: false
 
-      - name: Test
+      - name: Run tests
         run: make ci
 
       - name: Run octocov
-        uses: k1LoW/octocov-action@v0
+        uses: k1LoW/octocov-action@73d561f65d59e66899ed5c87e4621a913b5d5c20 # v1.5.0

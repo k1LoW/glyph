@@ -68,7 +68,7 @@ type Glyph struct {
 
 type Option func(*Glyph) error
 
-// Width set SVG width
+// Width set SVG width.
 func Width(w float64) Option {
 	return func(g *Glyph) error {
 		g.w = w
@@ -76,7 +76,7 @@ func Width(w float64) Option {
 	}
 }
 
-// Height set SVG height
+// Height set SVG height.
 func Height(h float64) Option {
 	return func(g *Glyph) error {
 		g.h = h
@@ -84,7 +84,7 @@ func Height(h float64) Option {
 	}
 }
 
-// Color set SVG line 'stroke'
+// Color set SVG line 'stroke'.
 func Color(c string) Option {
 	return func(g *Glyph) error {
 		g.baseColor = c
@@ -93,7 +93,7 @@ func Color(c string) Option {
 	}
 }
 
-// FillColor set SVG line 'fill'
+// FillColor set SVG line 'fill'.
 func FillColor(c string) Option {
 	return func(g *Glyph) error {
 		g.baseFillColor = c
@@ -102,7 +102,7 @@ func FillColor(c string) Option {
 	}
 }
 
-// TextColor set SVG text 'fill'
+// TextColor set SVG text 'fill'.
 func TextColor(c string) Option {
 	return func(g *Glyph) error {
 		g.baseTextColor = c
@@ -111,7 +111,7 @@ func TextColor(c string) Option {
 	}
 }
 
-// LineOpt set SVG line option
+// LineOpt set SVG line option.
 func LineOpt(opt string) Option {
 	return func(g *Glyph) error {
 		splited := strings.Split(opt, ":")
@@ -120,7 +120,7 @@ func LineOpt(opt string) Option {
 	}
 }
 
-// TextOpt set SVG text option
+// TextOpt set SVG text option.
 func TextOpt(opt string) Option {
 	return func(g *Glyph) error {
 		splited := strings.Split(opt, ":")
@@ -129,7 +129,7 @@ func TextOpt(opt string) Option {
 	}
 }
 
-// LineOpts set SVG line options
+// LineOpts set SVG line options.
 func LineOpts(opts []string) Option {
 	return func(g *Glyph) error {
 		for _, opt := range opts {
@@ -140,7 +140,7 @@ func LineOpts(opts []string) Option {
 	}
 }
 
-// TextOpts set SVG text options
+// TextOpts set SVG text options.
 func TextOpts(opts []string) Option {
 	return func(g *Glyph) error {
 		for _, opt := range opts {
@@ -151,7 +151,7 @@ func TextOpts(opts []string) Option {
 	}
 }
 
-// New return *Glyph
+// New return *Glyph.
 func New(opts ...Option) (*Glyph, error) {
 	g := &Glyph{
 		w:               110.0,
@@ -185,7 +185,7 @@ func New(opts ...Option) (*Glyph, error) {
 	return g, nil
 }
 
-// Line draw line
+// Line draw line.
 func (g *Glyph) Line(points []string, opts ...string) error {
 	m := orderedmap.NewOrderedMap()
 	l := &Line{}
@@ -206,7 +206,7 @@ func (g *Glyph) Line(points []string, opts ...string) error {
 	return nil
 }
 
-// Line draw text
+// Text draw text.
 func (g *Glyph) Text(text, point string, opts ...string) error {
 	ps := GetPoints()
 	p, err := ps.Get(point)
@@ -266,23 +266,25 @@ func (g *Glyph) writeSVG(w io.Writer) error {
 		m := orderedmap.NewOrderedMap()
 		for _, k := range g.lineOpts.Keys() {
 			v, _ := g.lineOpts.Get(k)
-			switch v.(string) {
+			sv, _ := v.(string)
+			switch sv {
 			case BaseColorKey:
-				v = g.baseColor
+				sv = g.baseColor
 			case BaseFillColorKey:
-				v = g.baseFillColor
+				sv = g.baseFillColor
 			}
-			m.Set(k, v.(string))
+			m.Set(k, sv)
 		}
 		for _, k := range l.opts.Keys() {
 			v, _ := l.opts.Get(k)
-			switch v.(string) {
+			sv, _ := v.(string)
+			switch sv {
 			case BaseColorKey:
-				v = g.baseColor
+				sv = g.baseColor
 			case BaseFillColorKey:
-				v = g.baseFillColor
+				sv = g.baseFillColor
 			}
-			m.Set(k, v.(string))
+			m.Set(k, sv)
 		}
 		if l.points[0].X == l.points[len(l.points)-1].X && l.points[0].Y == l.points[len(l.points)-1].Y {
 			// polygon
@@ -301,7 +303,8 @@ func (g *Glyph) writeSVG(w io.Writer) error {
 		opts := []string{}
 		for _, k := range m.Keys() {
 			v, _ := m.Get(k)
-			opts = append(opts, fmt.Sprintf("%s:%s", k, v.(string)))
+			sv, _ := v.(string)
+			opts = append(opts, fmt.Sprintf("%s:%s", k, sv))
 		}
 
 		if l.points[0].X == l.points[len(l.points)-1].X && l.points[0].Y == l.points[len(l.points)-1].Y {
@@ -319,28 +322,31 @@ func (g *Glyph) writeSVG(w io.Writer) error {
 		m := orderedmap.NewOrderedMap()
 		for _, k := range g.textOpts.Keys() {
 			v, _ := g.textOpts.Get(k)
-			switch v.(string) {
+			sv, _ := v.(string)
+			switch sv {
 			case BaseColorKey:
-				v = g.baseColor
+				sv = g.baseColor
 			case BaseFillColorKey:
-				v = g.baseFillColor
+				sv = g.baseFillColor
 			}
-			m.Set(k, v.(string))
+			m.Set(k, sv)
 		}
 		for _, k := range t.opts.Keys() {
 			v, _ := t.opts.Get(k)
-			switch v.(string) {
+			sv, _ := v.(string)
+			switch sv {
 			case BaseColorKey:
-				v = g.baseColor
+				sv = g.baseColor
 			case BaseFillColorKey:
-				v = g.baseFillColor
+				sv = g.baseFillColor
 			}
-			m.Set(k, v.(string))
+			m.Set(k, sv)
 		}
 		opts := []string{}
 		for _, k := range m.Keys() {
 			v, _ := m.Get(k)
-			opts = append(opts, fmt.Sprintf("%s:%s", k, v.(string)))
+			sv, _ := v.(string)
+			opts = append(opts, fmt.Sprintf("%s:%s", k, sv))
 		}
 		svg.Text(t.point.X, t.point.Y, t.text, strings.Join(opts, "; "))
 	}
@@ -355,7 +361,8 @@ func (g *Glyph) writePNG(w io.Writer) error {
 	// oksvg workaround: stroke-width
 	sw, exist := g.lineOpts.Get("stroke-width")
 	if exist {
-		fsw, err := strconv.ParseFloat(sw.(string), 64)
+		swStr, _ := sw.(string)
+		fsw, err := strconv.ParseFloat(swStr, 64)
 		if err != nil {
 			return err
 		}
@@ -368,7 +375,8 @@ func (g *Glyph) writePNG(w io.Writer) error {
 
 	// revert oksvg workaround: stroke-width
 	if exist {
-		g.lineOpts.Set("stroke-width", sw.(string))
+		swStr, _ := sw.(string)
+		g.lineOpts.Set("stroke-width", swStr)
 	}
 
 	icon, err := oksvg.ReadIconStream(svgbuf)
@@ -384,21 +392,23 @@ func (g *Glyph) writePNG(w io.Writer) error {
 		m := orderedmap.NewOrderedMap()
 		for _, k := range g.textOpts.Keys() {
 			v, _ := g.textOpts.Get(k)
-			m.Set(k, v.(string))
+			sv, _ := v.(string)
+			m.Set(k, sv)
 		}
 		for _, k := range t.opts.Keys() {
 			v, _ := t.opts.Get(k)
-			m.Set(k, v.(string))
+			sv, _ := v.(string)
+			m.Set(k, sv)
 		}
 		size := defaultFontSize
 		sizei, exist := m.Get("font-size")
 		if exist {
-			size = sizei.(string)
+			size, _ = sizei.(string)
 		}
 		clr := defaultColor
 		clri, exist := m.Get("fill")
 		if exist {
-			clr = clri.(string)
+			clr, _ = clri.(string)
 		}
 		if err := g.addTextToImage(rgba, t.point.X, t.point.Y, t.text, size, clr); err != nil {
 			return err

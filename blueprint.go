@@ -54,6 +54,11 @@ type Blueprint struct {
 	RawTexts []TextAndOpts `json:"texts,omitempty" yaml:"texts,omitempty" toml:"texts,omitempty"`
 }
 
+// NewBlueprint create new Blueprint.
+func NewBlueprint() *Blueprint {
+	return &Blueprint{}
+}
+
 func (b Blueprint) ToGlyph() (*Glyph, error) {
 	g, err := New()
 	if err != nil {
@@ -83,11 +88,6 @@ func (b Blueprint) ToGlyph() (*Glyph, error) {
 func (b Blueprint) ToGlyphAndKey() (*Glyph, string, error) {
 	g, err := b.ToGlyph()
 	return g, b.Key, err
-}
-
-// NewBlueprint create new Blueprint
-func NewBlueprint() *Blueprint {
-	return &Blueprint{}
 }
 
 func (b *Blueprint) Lines(lines []LineAndOpts) *Blueprint {

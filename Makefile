@@ -7,19 +7,14 @@ else
 	DATE = $$(date --utc '+%Y-%m-%d_%H:%M:%S')
 endif
 
-export GO111MODULE=on
-
 BUILD_LDFLAGS = -X $(PKG).commit=$(COMMIT) -X $(PKG).date=$(DATE)
 
 default: test
 
-ci: depsdev test sec
+ci: test
 
 test:
 	go test ./... -coverprofile=coverage.out -covermode=count
-
-sec:
-	gosec ./...
 
 build:
 	go build -ldflags="$(BUILD_LDFLAGS)"
@@ -30,21 +25,24 @@ doc:
 	go run ./misc/database_with_c/main.go > img/database_with_c.svg
 	go run ./misc/included/main.go
 
-ci_doc: doc
-	$(eval DIFF_EXIST := $(shell git checkout go.* && git diff --exit-code --quiet || echo "exist"))
-	test -z "$(DIFF_EXIST)" || (git add -A ./img && git add -A *.md && git commit -m "Update images by GitHub Action (${GITHUB_SHA})" && git push -v origin ${GITHUB_BRANCH})
+lint:
+	golangci-lint run ./...
 
 depsdev:
-	go install github.com/Songmu/ghch/cmd/ghch@v0.10.2
-	go install github.com/Songmu/gocredits/cmd/gocredits@v0.2.0
-	go install github.com/securego/gosec/v2/cmd/gosec@v2.8.1
+	go install github.com/Songmu/ghch/cmd/ghch@latest
+	go install github.com/Songmu/gocredits/cmd/gocredits@latest
 
 prerelease:
-	git pull origin --tag
+	git pull origin main --tag
+	go mod tidy
 	ghch -w -N ${VER}
-	gocredits . > CREDITS
-	git add CHANGELOG.md CREDITS
+	gocredits . -w
+	git add CHANGELOG.md CREDITS go.mod go.sum
 	git commit -m'Bump up version number'
 	git tag ${VER}
+
+prerelease_for_tagpr:
+	gocredits . -w
+	git add CHANGELOG.md CREDITS go.mod go.sum
 
 .PHONY: default test
