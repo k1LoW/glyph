@@ -1,3 +1,11 @@
+## [v0.6.0](https://github.com/k1LoW/glyph/compare/v0.5.0...v0.6.0) - 2026-03-31
+- Use octocov by @k1LoW in https://github.com/k1LoW/glyph/pull/12
+- Bump golang.org/x/net from 0.0.0-20201110031124-69a78807bb2b to 0.7.0 by @dependabot[bot] in https://github.com/k1LoW/glyph/pull/13
+- Bump golang.org/x/image from 0.0.0-20200927104501-e162460cd6b5 to 0.5.0 by @dependabot[bot] in https://github.com/k1LoW/glyph/pull/14
+- Bump golang.org/x/net from 0.7.0 to 0.17.0 by @dependabot[bot] in https://github.com/k1LoW/glyph/pull/15
+- Bump golang.org/x/image from 0.5.0 to 0.10.0 by @dependabot[bot] in https://github.com/k1LoW/glyph/pull/16
+- Bump golang.org/x/image from 0.10.0 to 0.18.0 by @dependabot[bot] in https://github.com/k1LoW/glyph/pull/18
+
 ## [v0.5.0](https://github.com/k1LoW/glyph/compare/v0.4.1...v0.5.0) (2020-12-20)
 
 * Use base colors [#11](https://github.com/k1LoW/glyph/pull/11) ([k1LoW](https://github.com/k1LoW))
