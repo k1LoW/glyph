@@ -1,3 +1,6 @@
+## [v0.6.1](https://github.com/k1LoW/glyph/compare/v0.6.0...v0.6.1) - 2026-09-28
+- ci: generate CREDITS with gocredits v1.0.0 from a make target by @k1LoW in https://github.com/k1LoW/glyph/pull/21
+
 ## [v0.6.0](https://github.com/k1LoW/glyph/compare/v0.5.0...v0.6.0) - 2026-03-31
 - Use octocov by @k1LoW in https://github.com/k1LoW/glyph/pull/12
 - Bump golang.org/x/net from 0.0.0-20201110031124-69a78807bb2b to 0.7.0 by @dependabot[bot] in https://github.com/k1LoW/glyph/pull/13
